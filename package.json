@@ -1,0 +1,14 @@
+{
+  "name": "project-name",
+  "version": "1.0.0",
+  "description": "Development tooling for the project",
+  "scripts": {
+    "docs:serve": "python -m http.server 8000 --directory docs",
+    "docs:build": "echo 'Add your documentation build command here'",
+    "lint": "echo 'Add your linting command here'",
+    "test": "echo 'Add your test command here'",
+    "format": "echo 'Add your formatting command here'"
+  },
+  "devDependencies": {},
+  "private": true
+}
