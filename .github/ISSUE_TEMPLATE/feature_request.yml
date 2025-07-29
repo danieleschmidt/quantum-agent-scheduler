@@ -1,0 +1,182 @@
+name: Feature Request
+description: Suggest a new feature or enhancement
+title: "[FEATURE] "
+labels: ["enhancement", "triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a new feature! We appreciate community input on improving quantum-agent-scheduler.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Feature Summary
+      description: A brief summary of the feature you'd like to see
+      placeholder: Brief description of the feature...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Feature Category
+      description: What category does this feature fall into?
+      options:
+        - Core Scheduling Algorithm
+        - Quantum Backend Integration
+        - Agent Framework Integration
+        - Performance Optimization
+        - Monitoring & Observability
+        - API & CLI
+        - Documentation
+        - Testing & Development
+        - Security
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve? What use case does it enable?
+      placeholder: |
+        Currently, users cannot...
+        This makes it difficult to...
+        The impact is...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe your proposed solution in detail
+      placeholder: |
+        I propose adding...
+        This would work by...
+        The implementation could...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Have you considered any alternative solutions or workarounds?
+      placeholder: |
+        Alternative approaches could include...
+        Current workarounds are...
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Usage Example
+      description: Show how this feature would be used
+      render: python
+      placeholder: |
+        # Example of how the feature would be used
+        from quantum_scheduler import QuantumScheduler
+        
+        scheduler = QuantumScheduler()
+        # Your example here...
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature to you?
+      options:
+        - Low (nice to have)
+        - Medium (would improve workflow)
+        - High (needed for current project)
+        - Critical (blocking current work)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Estimated Complexity
+      description: How complex do you think this feature would be to implement?
+      options:
+        - Low (small change, well-defined)
+        - Medium (moderate change, some complexity)
+        - High (significant change, complex implementation)
+        - Very High (major architectural change)
+        - Unknown
+
+  - type: checkboxes
+    id: quantum_specific
+    attributes:
+      label: Quantum Computing Aspects
+      description: Does this feature relate to quantum computing?
+      options:
+        - label: This feature is specific to quantum backends
+        - label: This feature improves quantum algorithm performance
+        - label: This feature adds new quantum provider support
+        - label: This feature is quantum-agnostic (works for classical too)
+
+  - type: checkboxes
+    id: breaking
+    attributes:
+      label: Breaking Changes
+      description: Would this feature potentially introduce breaking changes?
+      options:
+        - label: This feature might require breaking API changes
+        - label: This feature could change default behavior
+        - label: This feature is fully backward compatible
+        - label: Unsure about backward compatibility
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: Expected Benefits
+      description: What benefits would this feature provide?
+      placeholder: |
+        - Performance improvement: ...
+        - User experience: ...
+        - New capabilities: ...
+        - Quantum advantage: ...
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Potential Risks or Drawbacks
+      description: Are there any potential risks or drawbacks to consider?
+      placeholder: |
+        - Complexity: ...
+        - Performance impact: ...
+        - Maintenance burden: ...
+        - Breaking changes: ...
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I would be willing to contribute this feature
+        - label: I would be willing to help test this feature
+        - label: I would be willing to help document this feature
+        - label: I need this feature but cannot contribute implementation
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Any relevant links, papers, or related issues
+      placeholder: |
+        - Related issues: #123
+        - Documentation: https://...
+        - Research papers: https://...
+        - Similar implementations: https://...
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any other context or information about the feature request
+      placeholder: Additional context, use cases, or implementation ideas...

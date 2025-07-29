@@ -1,0 +1,134 @@
+site_name: Quantum Agent Scheduler
+site_description: Hybrid classical-quantum scheduler for multi-agent systems
+site_author: Your Organization
+site_url: https://docs.your-org.com/quantum-scheduler
+
+repo_name: your-org/quantum-agent-scheduler
+repo_url: https://github.com/your-org/quantum-agent-scheduler
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.annotate
+    - content.code.copy
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            show_root_heading: true
+            show_source: true
+            heading_level: 2
+  - gen-files:
+      scripts:
+        - docs/gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - def_list
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quickstart.md
+    - Basic Examples: getting-started/examples.md
+  - User Guide:
+    - Core Concepts: user-guide/concepts.md
+    - Scheduling Algorithms: user-guide/algorithms.md
+    - QUBO Formulation: user-guide/qubo.md
+    - Quantum Backends: user-guide/backends.md
+    - Agent Frameworks: user-guide/frameworks.md
+    - Performance Optimization: user-guide/performance.md
+  - API Reference:
+    - Core: api/core.md
+    - Backends: api/backends.md
+    - Constraints: api/constraints.md
+    - Integrations: api/integrations.md
+    - CLI: api/cli.md
+  - Quantum Computing:
+    - Introduction: quantum/intro.md
+    - Quantum Advantage: quantum/advantage.md
+    - Backend Comparison: quantum/backends.md
+    - Cost Optimization: quantum/cost.md
+  - Developer Guide:
+    - Contributing: contributing.md
+    - Development Setup: development/setup.md
+    - Testing: development/testing.md
+    - Custom Backends: development/backends.md
+    - Custom Constraints: development/constraints.md
+  - Deployment:
+    - Docker: deployment/docker.md
+    - Kubernetes: deployment/kubernetes.md
+    - Cloud Providers: deployment/cloud.md
+    - Monitoring: deployment/monitoring.md
+  - About:
+    - Architecture: ARCHITECTURE.md
+    - Security: SECURITY.md
+    - License: license.md
+    - Changelog: changelog.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/your-org/quantum-agent-scheduler
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/quantum-agent-scheduler/
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/r/your-org/quantum-agent-scheduler
+  version:
+    provider: mike
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js

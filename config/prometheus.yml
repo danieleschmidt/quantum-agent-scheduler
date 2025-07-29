@@ -1,0 +1,52 @@
+# Prometheus configuration for quantum-agent-scheduler monitoring
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: []
+
+# Load rules once and periodically evaluate them
+rule_files:
+  - "alert_rules.yml"
+
+# Scrape configurations
+scrape_configs:
+  # Quantum Scheduler API metrics
+  - job_name: 'quantum-scheduler-api'
+    static_configs:
+      - targets: ['quantum-scheduler-prod:8000']
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+    scrape_timeout: 5s
+
+  # System metrics
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+
+  # Redis metrics
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis:6379']
+    metrics_path: '/metrics'
+
+  # PostgreSQL metrics
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['postgres-exporter:9187']
+
+  # Quantum backend metrics (mock endpoints for development)
+  - job_name: 'quantum-backends'
+    static_configs:
+      - targets: ['quantum-backend-monitor:8080']
+    metrics_path: '/quantum/metrics'
+    scrape_interval: 30s  # Less frequent for expensive quantum queries
+
+  # Self-monitoring
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']

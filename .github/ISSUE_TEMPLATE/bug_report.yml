@@ -1,0 +1,141 @@
+name: Bug Report
+description: Report a bug or issue with quantum-agent-scheduler
+title: "[BUG] "
+labels: ["bug", "triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug! Please provide as much detail as possible to help us investigate and fix the issue.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Describe the bug...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Initialize scheduler with...
+        2. Define agents as...
+        3. Run schedule() with...
+        4. See error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: A clear description of what you expected to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: A clear description of what actually happened.
+    validations:
+      required: true
+
+  - type: textarea
+    id: code
+    attributes:
+      label: Code Example
+      description: Minimal code example that reproduces the issue
+      render: python
+      placeholder: |
+        from quantum_scheduler import QuantumScheduler
+        
+        # Your code here...
+
+  - type: textarea
+    id: error
+    attributes:
+      label: Error Messages
+      description: Any error messages or stack traces
+      render: text
+      placeholder: Paste full error messages and stack traces here...
+
+  - type: dropdown
+    id: backend
+    attributes:
+      label: Quantum Backend
+      description: Which quantum backend were you using?
+      options:
+        - Classical (no quantum backend)
+        - Auto-selection
+        - Qiskit (IBM Quantum)
+        - AWS Braket
+        - D-Wave
+        - Azure Quantum
+        - Quantum Simulator
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Package Version
+      description: Which version of quantum-agent-scheduler are you using?
+      placeholder: "0.1.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Information
+      description: Please provide your environment details
+      render: text
+      placeholder: |
+        - OS: [e.g., Ubuntu 22.04, macOS 13.0, Windows 11]
+        - Python version: [e.g., 3.11.5]
+        - Poetry version: [e.g., 1.6.1]
+        - Quantum provider versions: [e.g., qiskit==1.0.0]
+        - Container/Docker: [if applicable]
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severe is this bug?
+      options:
+        - Low (cosmetic issue)
+        - Medium (functional issue with workaround)
+        - High (functional issue without workaround)
+        - Critical (system crash or data loss)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: additional
+    attributes:
+      label: Additional Information
+      options:
+        - label: This issue is reproducible
+        - label: This issue affects quantum backends specifically
+        - label: This issue affects classical scheduling
+        - label: This issue is related to performance
+        - label: I have checked existing issues for duplicates
+        - label: I have provided a minimal reproducible example
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here (screenshots, logs, etc.)
+      placeholder: Any additional context...
