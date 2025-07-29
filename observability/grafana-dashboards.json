@@ -1,0 +1,112 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Quantum Agent Scheduler - Performance Metrics",
+    "tags": ["quantum", "scheduling", "performance"],
+    "style": "dark",
+    "timezone": "browser",
+    "editable": true,
+    "graphTooltip": 1,
+    "panels": [
+      {
+        "id": 1,
+        "title": "Quantum vs Classical Solver Performance",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "quantum_solver_execution_time_seconds",
+            "legendFormat": "Quantum Solver - {{backend}}"
+          },
+          {
+            "expr": "classical_solver_execution_time_seconds", 
+            "legendFormat": "Classical Solver"
+          }
+        ],
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+        "yAxes": [
+          {
+            "label": "Execution Time (seconds)",
+            "min": 0
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Solution Quality Metrics",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "solution_quality_score",
+            "legendFormat": "Quality Score"
+          },
+          {
+            "expr": "solution_cost_effectiveness",
+            "legendFormat": "Cost Effectiveness"
+          }
+        ],
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0}
+      },
+      {
+        "id": 3,
+        "title": "Backend Utilization",
+        "type": "piechart",
+        "targets": [
+          {
+            "expr": "sum by (backend) (quantum_backend_usage_total)",
+            "legendFormat": "{{backend}}"
+          }
+        ],
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8}
+      },
+      {
+        "id": 4,
+        "title": "API Response Times",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m]))",
+            "legendFormat": "95th Percentile"
+          },
+          {
+            "expr": "histogram_quantile(0.50, rate(http_request_duration_seconds_bucket[5m]))",
+            "legendFormat": "50th Percentile"
+          }
+        ],
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8}
+      },
+      {
+        "id": 5,
+        "title": "Error Rates",
+        "type": "graph", 
+        "targets": [
+          {
+            "expr": "rate(quantum_solver_errors_total[5m])",
+            "legendFormat": "Quantum Solver Errors"
+          },
+          {
+            "expr": "rate(http_requests_total{status=~\"5..\"}[5m])",
+            "legendFormat": "HTTP 5xx Errors"
+          }
+        ],
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 16}
+      },
+      {
+        "id": 6,
+        "title": "Cost Analysis",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "quantum_backend_cost_per_job",
+            "legendFormat": "Cost per Job - {{backend}}"
+          }
+        ],
+        "gridPos": {"h": 8, "w": 12, "x": 12, "y": 16}
+      }
+    ],
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "refresh": "30s"
+  }
+}
