@@ -1,0 +1,36 @@
+# Code Owners - Automatically request reviews from relevant teams
+
+# Global owners (fallback)
+* @quantum-ai-team @maintainer-team
+
+# Core quantum scheduler components
+src/quantum_scheduler/core/ @quantum-core-team @senior-quantum-engineers
+src/quantum_scheduler/backends/ @quantum-backend-team @cloud-integration-team
+
+# Security-sensitive files
+SECURITY.md @security-team @maintainer-team
+.github/workflows/ @devops-team @security-team
+Dockerfile @devops-team @security-team
+docker-compose.yml @devops-team @security-team
+
+# Infrastructure and deployment
+config/ @devops-team @sre-team
+docs/deployment/ @devops-team @sre-team
+Makefile @devops-team
+
+# Documentation
+docs/ @docs-team @product-team
+README.md @docs-team @product-team
+*.md @docs-team
+
+# Configuration files
+pyproject.toml @maintainer-team @python-experts
+tox.ini @maintainer-team @qa-team
+.pre-commit-config.yaml @maintainer-team @qa-team
+
+# Testing
+tests/ @qa-team @quantum-core-team
+tests/integration/test_quantum_backends.py @quantum-backend-team @qa-team
+
+# Package management and releases
+poetry.lock @maintainer-team @security-team

@@ -1,0 +1,144 @@
+# Prometheus Alerting Rules for Quantum Agent Scheduler
+
+groups:
+  - name: quantum_scheduler_performance
+    rules:
+      - alert: QuantumSolverHighLatency
+        expr: quantum_solver_execution_time_seconds > 300
+        for: 5m
+        labels:
+          severity: warning
+          component: quantum_solver
+        annotations:
+          summary: "Quantum solver execution time is high"
+          description: "Quantum solver execution time has been above 5 minutes for {{ $labels.backend }} backend"
+
+      - alert: QuantumSolverTimeout
+        expr: quantum_solver_execution_time_seconds > 600
+        for: 2m
+        labels:
+          severity: critical
+          component: quantum_solver
+        annotations:
+          summary: "Quantum solver execution timeout"
+          description: "Quantum solver execution has exceeded 10 minutes for {{ $labels.backend }} backend"
+
+      - alert: HighErrorRate
+        expr: rate(quantum_solver_errors_total[5m]) > 0.1
+        for: 3m
+        labels:
+          severity: warning
+          component: quantum_solver
+        annotations:
+          summary: "High error rate in quantum solver"
+          description: "Error rate is {{ $value | humanizePercentage }} for quantum solver"
+
+  - name: quantum_scheduler_availability
+    rules:
+      - alert: QuantumBackendDown
+        expr: quantum_backend_available == 0
+        for: 1m
+        labels:
+          severity: critical
+          component: quantum_backend
+        annotations:
+          summary: "Quantum backend is unavailable"
+          description: "{{ $labels.backend }} quantum backend has been unavailable for over 1 minute"
+
+      - alert: AllQuantumBackendsDown
+        expr: sum(quantum_backend_available) == 0
+        for: 30s
+        labels:
+          severity: critical
+          component: quantum_backend
+        annotations:
+          summary: "All quantum backends are unavailable"
+          description: "All quantum backends are down - falling back to classical solver only"
+
+  - name: quantum_scheduler_cost
+    rules:
+      - alert: HighQuantumCost
+        expr: quantum_backend_cost_per_job > 50
+        for: 1m
+        labels:
+          severity: warning
+          component: cost_optimization
+        annotations:
+          summary: "High quantum computing cost per job"
+          description: "Cost per job is ${{ $value }} for {{ $labels.backend }} backend"
+
+      - alert: MonthlyBudgetExceeded
+        expr: sum(quantum_backend_monthly_cost) > 1000
+        for: 1m
+        labels:
+          severity: critical
+          component: cost_optimization
+        annotations:
+          summary: "Monthly quantum computing budget exceeded"
+          description: "Monthly cost has exceeded $1000 budget"
+
+  - name: quantum_scheduler_quality
+    rules:
+      - alert: LowSolutionQuality
+        expr: solution_quality_score < 0.7
+        for: 10m
+        labels:
+          severity: warning
+          component: solution_quality
+        annotations:
+          summary: "Solution quality is below threshold"
+          description: "Solution quality score is {{ $value }} (below 0.7 threshold)"
+
+      - alert: ClassicalOutperformingQuantum
+        expr: classical_solver_quality_score > quantum_solver_quality_score
+        for: 15m
+        labels:
+          severity: info
+          component: performance_analysis
+        annotations:
+          summary: "Classical solver outperforming quantum"
+          description: "Classical solver quality ({{ .classical_solver_quality_score }}) > quantum quality ({{ .quantum_solver_quality_score }})"
+
+  - name: quantum_scheduler_infrastructure
+    rules:
+      - alert: HighMemoryUsage
+        expr: (process_resident_memory_bytes / 1e9) > 8
+        for: 5m
+        labels:
+          severity: warning
+          component: infrastructure
+        annotations:
+          summary: "High memory usage"
+          description: "Memory usage is {{ $value | humanize1024 }}GB (above 8GB threshold)"
+
+      - alert: HighCPUUsage
+        expr: rate(process_cpu_seconds_total[5m]) * 100 > 80
+        for: 10m
+        labels:
+          severity: warning
+          component: infrastructure
+        annotations:
+          summary: "High CPU usage"
+          description: "CPU usage is {{ $value | humanizePercentage }} (above 80% threshold)"
+
+  - name: quantum_scheduler_api
+    rules:
+      - alert: HighAPILatency
+        expr: histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m])) > 5
+        for: 5m
+        labels:
+          severity: warning
+          component: api
+        annotations:
+          summary: "High API response latency"
+          description: "95th percentile latency is {{ $value }}s (above 5s threshold)"
+
+      - alert: HTTPErrorRate
+        expr: rate(http_requests_total{status=~"5.."}[5m]) / rate(http_requests_total[5m]) > 0.05
+        for: 3m
+        labels:
+          severity: critical
+          component: api
+        annotations:
+          summary: "High HTTP error rate"
+          description: "HTTP 5xx error rate is {{ $value | humanizePercentage }} (above 5% threshold)"
