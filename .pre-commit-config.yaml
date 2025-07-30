@@ -9,14 +9,94 @@ repos:
       - id: end-of-file-fixer
       - id: check-yaml
       - id: check-added-large-files
+        args: ['--maxkb=1000']
       - id: check-merge-conflict
+      - id: check-json
+      - id: check-toml
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: debug-statements
+      - id: requirements-txt-fixer
 
   - repo: https://github.com/psf/black
     rev: 23.3.0
     hooks:
       - id: black
+        language_version: python3
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: ["--profile", "black"]
+
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.0.280
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
 
   - repo: https://github.com/pycqa/flake8
     rev: 6.0.0
     hooks:
       - id: flake8
+        additional_dependencies: [flake8-docstrings, flake8-bugbear]
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.5.0
+    hooks:
+      - id: mypy
+        additional_dependencies: [types-all]
+        args: [--ignore-missing-imports]
+
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.5
+    hooks:
+      - id: bandit
+        args: ['-c', 'pyproject.toml']
+        additional_dependencies: ['bandit[toml]']
+
+  - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
+    rev: v1.3.2
+    hooks:
+      - id: python-safety-dependencies-check
+
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.32.0
+    hooks:
+      - id: yamllint
+        args: [-c=.yamllint.yml]
+
+  - repo: https://github.com/pycqa/pydocstyle
+    rev: 6.3.0
+    hooks:
+      - id: pydocstyle
+        match: '^src/'
+
+  - repo: local
+    hooks:
+      - id: quantum-config-check
+        name: Validate quantum backend configurations
+        entry: python scripts/validate_quantum_configs.py
+        language: system
+        files: ^(config/|src/quantum_scheduler/backends/).*\.(py|yml|yaml|json)$
+        pass_filenames: false
+
+      - id: dockerfile-lint
+        name: Lint Dockerfile
+        entry: hadolint
+        language: system
+        files: Dockerfile
+        
+      - id: poetry-check
+        name: Validate poetry configuration
+        entry: poetry check
+        language: system
+        files: pyproject.toml
+        pass_filenames: false

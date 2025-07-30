@@ -1,0 +1,28 @@
+# Hadolint configuration for Dockerfile linting
+# See https://github.com/hadolint/hadolint
+
+ignored:
+  # Allow specific base images for quantum computing requirements
+  - DL3006
+  # Allow pip install without --no-cache-dir in multi-stage builds
+  - DL3042
+
+trustedRegistries:
+  - docker.io
+  - ghcr.io
+  - quay.io
+
+allowedMaintainers:
+  - "Your Organization <quantum-ai@your-org.com>"
+
+# Rules to enforce
+rules:
+  # Security
+  - DL3002: Last USER should not be root
+  - DL3008: Pin versions in apt get install
+  - DL3009: Delete the apt-get lists after installing something
+  - DL3015: Avoid additional packages by specifying --no-install-recommends
+  
+  # Best practices
+  - DL3020: Use COPY instead of ADD for files and folders
+  - DL3025: Use arguments JSON notation for CMD and ENTRYPOINT arguments
