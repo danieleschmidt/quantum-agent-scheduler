@@ -1,0 +1,55 @@
+# YAML Lint Configuration
+# See https://yamllint.readthedocs.io/en/stable/configuration.html
+
+extends: default
+
+rules:
+  # Allow longer lines in YAML files
+  line-length:
+    max: 120
+    level: warning
+
+  # Allow multiple spaces for alignment
+  key-duplicates: enable
+  
+  # Relax indentation rules for better readability
+  indentation:
+    spaces: 2
+    indent-sequences: true
+    check-multi-line-strings: false
+
+  # Allow truthy values (on/off, yes/no)
+  truthy:
+    allowed-values: ['true', 'false', 'on', 'off', 'yes', 'no']
+    check-keys: false
+
+  # Document start is optional
+  document-start: disable
+
+  # Allow empty lines for better readability
+  empty-lines:
+    max: 2
+    max-start: 1
+    max-end: 1
+
+  # Comments configuration
+  comments:
+    min-spaces-from-content: 1
+    require-starting-space: true
+
+  # Brackets configuration
+  brackets:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+
+  # Braces configuration  
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+
+ignore: |
+  .github/
+  node_modules/
+  .tox/
+  .venv/
+  venv/

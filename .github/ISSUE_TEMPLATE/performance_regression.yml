@@ -1,0 +1,101 @@
+name: Performance Regression
+description: Report a performance regression in quantum-agent-scheduler
+title: "[PERF] Performance regression in "
+labels: ["performance", "regression", "bug"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a performance regression! Please provide the following information to help us investigate.
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Which component is experiencing the performance regression?
+      options:
+        - Quantum Scheduler Core
+        - QUBO Formulation
+        - Quantum Backends (Qiskit)
+        - Quantum Backends (AWS Braket)
+        - Quantum Backends (D-Wave)
+        - Quantum Backends (Azure Quantum)
+        - Agent Integration (CrewAI)
+        - Agent Integration (AutoGen)
+        - Agent Integration (Claude-Flow)
+        - API Server
+        - CLI Tool
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Performance Issue Description
+      description: Describe the performance regression you've observed
+      placeholder: |
+        Example: Scheduling 100 agents with 500 tasks now takes 45 seconds instead of the previous 12 seconds.
+    validations:
+      required: true
+
+  - type: textarea
+    id: benchmark_data
+    attributes:
+      label: Benchmark Data
+      description: Please provide any benchmark data or performance measurements
+      placeholder: |
+        Include timing data, memory usage, or any profiling results.
+        If available, include comparison with previous versions.
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version of quantum-agent-scheduler are you using?
+      placeholder: "v0.1.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Describe your environment
+      placeholder: |
+        - OS: Ubuntu 22.04
+        - Python: 3.11.2
+        - Quantum Backend: IBM Quantum (qasm_simulator)
+        - Problem Size: 100 agents, 500 tasks
+        - Hardware: 8 CPU cores, 16GB RAM
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_performance
+    attributes:
+      label: Expected Performance
+      description: What performance did you expect?
+      placeholder: "Scheduling should complete within 15 seconds based on previous versions"
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this performance issue?
+      placeholder: |
+        1. Create a scheduling problem with 100 agents and 500 tasks
+        2. Use the QUBO formulation with skill matching constraints
+        3. Run with IBM Quantum simulator backend
+        4. Measure execution time
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any other information that might be relevant
+      placeholder: "Performance was fine in version 0.0.9, regression appeared in 0.1.0"
