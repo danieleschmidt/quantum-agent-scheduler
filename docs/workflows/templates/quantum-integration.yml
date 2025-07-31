@@ -1,0 +1,131 @@
+name: Quantum Integration Tests
+
+on:
+  schedule:
+    - cron: '0 4 * * 1'  # Weekly on Monday
+  workflow_dispatch:
+    inputs:
+      backend:
+        description: 'Quantum backend to test'
+        required: false
+        default: 'simulator'
+        type: choice
+        options:
+        - simulator
+        - ibm_quantum
+        - aws_braket
+        - dwave
+
+jobs:
+  quantum-simulator-tests:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event.inputs.backend == 'simulator'
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+        
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      
+    - name: Install dependencies with quantum extras
+      run: poetry install --with dev,quantum --extras "qiskit dwave"
+      
+    - name: Run simulator-based quantum tests
+      run: |
+        poetry run pytest tests/integration/ -v \
+          -m "quantum and not hardware" \
+          --quantum \
+          --tb=short
+          
+    - name: Upload quantum test results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: quantum-simulator-results
+        path: |
+          test-results.xml
+          htmlcov/
+
+  quantum-hardware-tests:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.backend != 'simulator'
+    environment: quantum-testing
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+        
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      
+    - name: Install dependencies
+      run: poetry install --with dev,quantum --extras "all"
+      
+    - name: Test IBM Quantum integration
+      if: github.event.inputs.backend == 'ibm_quantum'
+      env:
+        IBM_QUANTUM_TOKEN: ${{ secrets.IBM_QUANTUM_TOKEN }}
+      run: |
+        poetry run pytest tests/integration/test_quantum_backends.py::TestQuantumBackendIntegration::test_qiskit_backend_integration -v
+        
+    - name: Test AWS Braket integration
+      if: github.event.inputs.backend == 'aws_braket'
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: us-east-1
+      run: |
+        poetry run pytest tests/integration/test_quantum_backends.py::TestQuantumBackendIntegration::test_braket_backend_integration -v
+        
+    - name: Test D-Wave integration
+      if: github.event.inputs.backend == 'dwave'
+      env:
+        DWAVE_API_TOKEN: ${{ secrets.DWAVE_API_TOKEN }}
+      run: |
+        poetry run pytest tests/integration/test_quantum_backends.py::TestQuantumBackendIntegration::test_dwave_backend_integration -v
+        
+    - name: Upload hardware test results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: quantum-hardware-results-${{ github.event.inputs.backend }}
+        path: |
+          test-results.xml
+          htmlcov/
+
+  quantum-compatibility-matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.9, "3.10", 3.11, 3.12]
+        quantum-framework: ["qiskit", "dwave", "braket"]
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+        
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      
+    - name: Install dependencies for ${{ matrix.quantum-framework }}
+      run: poetry install --with dev,quantum --extras "${{ matrix.quantum-framework }}"
+      
+    - name: Run compatibility validation
+      run: |
+        poetry run python scripts/check_compatibility.py --framework ${{ matrix.quantum-framework }}
+        
+    - name: Test framework-specific functionality
+      run: |
+        poetry run pytest tests/unit/ -v \
+          -k "${{ matrix.quantum-framework }}" \
+          --tb=short

@@ -1,0 +1,77 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+  
+  prometheus:
+    config:
+      scrape_configs:
+        - job_name: 'quantum-scheduler'
+          static_configs:
+            - targets: ['host.docker.internal:8000']
+          scrape_interval: 30s
+          metrics_path: /metrics
+
+processors:
+  batch:
+    timeout: 1s
+    send_batch_size: 1024
+  
+  memory_limiter:
+    limit_mib: 256
+  
+  resource:
+    attributes:
+      - key: service.name
+        value: quantum-agent-scheduler
+        action: upsert
+      - key: service.version
+        from_attribute: version
+        action: upsert
+      - key: deployment.environment
+        value: ${ENVIRONMENT:-development}
+        action: upsert
+
+exporters:
+  jaeger:
+    endpoint: jaeger:14250
+    tls:
+      insecure: true
+  
+  prometheus:
+    endpoint: "0.0.0.0:8888"
+    namespace: quantum_scheduler
+    const_labels:
+      environment: ${ENVIRONMENT:-development}
+  
+  loki:
+    endpoint: http://loki:3100/loki/api/v1/push
+    labels:
+      attributes:
+        service.name: "service_name"
+        deployment.environment: "env"
+  
+  logging:
+    loglevel: info
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, resource, batch]
+      exporters: [jaeger, logging]
+    
+    metrics:
+      receivers: [otlp, prometheus]
+      processors: [memory_limiter, resource, batch]
+      exporters: [prometheus, logging]
+    
+    logs:
+      receivers: [otlp]
+      processors: [memory_limiter, resource, batch]
+      exporters: [loki, logging]
+
+  extensions: []
