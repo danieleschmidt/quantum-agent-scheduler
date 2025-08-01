@@ -1,0 +1,165 @@
+{
+  "generated_at": "2025-08-01T11:50:58.971925",
+  "repository": "quantum-agent-scheduler",
+  "total_items": 8,
+  "items": [
+    {
+      "id": "infra-github-workflows",
+      "title": "Deploy GitHub Actions workflows",
+      "description": "Copy workflow templates to .github/workflows/ for CI/CD automation",
+      "category": "infrastructure",
+      "priority": "high",
+      "wsjf_score": 10.5,
+      "ice_score": 53.199999999999996,
+      "technical_debt_score": 4.0,
+      "composite_score": 18.497999999999998,
+      "estimated_hours": 2.0,
+      "confidence": 0.95,
+      "files_affected": [],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:50:58.971586",
+      "last_updated": "2025-08-01T11:50:58.971586",
+      "source": "infrastructure_analysis"
+    },
+    {
+      "id": "td-0",
+      "title": "Technical debt in README.md:10",
+      "description": "Critical issue",
+      "category": "technical_debt",
+      "priority": "medium",
+      "wsjf_score": 9.5,
+      "ice_score": 38.400000000000006,
+      "technical_debt_score": 20.0,
+      "composite_score": 15.984,
+      "estimated_hours": 2.0,
+      "confidence": 0.8,
+      "files_affected": [
+        "docs/adr/README.md"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:50:58.939715",
+      "last_updated": "2025-08-01T11:50:58.939715",
+      "source": "git_history"
+    },
+    {
+      "id": "quantum-opt-validate_quantum_configs",
+      "title": "Add quantum circuit optimization to validate_quantum_configs.py",
+      "description": "Implement quantum circuit optimization for better performance",
+      "category": "quantum_optimization",
+      "priority": "high",
+      "wsjf_score": 3.8333333333333335,
+      "ice_score": 27.200000000000003,
+      "technical_debt_score": 12.0,
+      "composite_score": 11.708,
+      "estimated_hours": 6.0,
+      "confidence": 0.8,
+      "files_affected": [
+        "/root/repo/scripts/validate_quantum_configs.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:50:58.969202",
+      "last_updated": "2025-08-01T11:50:58.969202",
+      "source": "quantum_optimization"
+    },
+    {
+      "id": "quantum-opt-test_quantum_backends",
+      "title": "Add quantum circuit optimization to test_quantum_backends.py",
+      "description": "Implement quantum circuit optimization for better performance",
+      "category": "quantum_optimization",
+      "priority": "high",
+      "wsjf_score": 3.8333333333333335,
+      "ice_score": 27.200000000000003,
+      "technical_debt_score": 12.0,
+      "composite_score": 11.708,
+      "estimated_hours": 6.0,
+      "confidence": 0.8,
+      "files_affected": [
+        "/root/repo/tests/integration/test_quantum_backends.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:50:58.969371",
+      "last_updated": "2025-08-01T11:50:58.969371",
+      "source": "quantum_optimization"
+    },
+    {
+      "id": "quantum-opt-test_quantum_backends",
+      "title": "Add quantum circuit optimization to test_quantum_backends.py",
+      "description": "Implement quantum circuit optimization for better performance",
+      "category": "quantum_optimization",
+      "priority": "high",
+      "wsjf_score": 3.8333333333333335,
+      "ice_score": 27.200000000000003,
+      "technical_debt_score": 12.0,
+      "composite_score": 11.708,
+      "estimated_hours": 6.0,
+      "confidence": 0.8,
+      "files_affected": [
+        "/root/repo/tests/integration/test_quantum_backends.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:50:58.969423",
+      "last_updated": "2025-08-01T11:50:58.969423",
+      "source": "quantum_optimization"
+    },
+    {
+      "id": "perf-value-engine",
+      "title": "Optimize large file value-engine.py",
+      "description": "File has 632 lines, consider refactoring for performance",
+      "category": "performance",
+      "priority": "medium",
+      "wsjf_score": 5.0,
+      "ice_score": 39.199999999999996,
+      "technical_debt_score": 15.0,
+      "composite_score": 9.991999999999999,
+      "estimated_hours": 3.0,
+      "confidence": 0.7,
+      "files_affected": [
+        "/root/repo/.terragon/value-engine.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:50:58.963423",
+      "last_updated": "2025-08-01T11:50:58.963423",
+      "source": "performance_profiling"
+    },
+    {
+      "id": "perf-autonomous-executor",
+      "title": "Optimize large file autonomous-executor.py",
+      "description": "File has 447 lines, consider refactoring for performance",
+      "category": "performance",
+      "priority": "medium",
+      "wsjf_score": 5.0,
+      "ice_score": 39.199999999999996,
+      "technical_debt_score": 15.0,
+      "composite_score": 9.991999999999999,
+      "estimated_hours": 3.0,
+      "confidence": 0.7,
+      "files_affected": [
+        "/root/repo/.terragon/autonomous-executor.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:50:58.963649",
+      "last_updated": "2025-08-01T11:50:58.963649",
+      "source": "performance_profiling"
+    },
+    {
+      "id": "quantum-fallback-validate_quantum_configs",
+      "title": "Add classical fallback to validate_quantum_configs.py",
+      "description": "Implement classical fallback for quantum backend failures",
+      "category": "quantum_optimization",
+      "priority": "medium",
+      "wsjf_score": 5.0,
+      "ice_score": 45.900000000000006,
+      "technical_debt_score": 8.0,
+      "composite_score": 7.959,
+      "estimated_hours": 4.0,
+      "confidence": 0.9,
+      "files_affected": [
+        "/root/repo/scripts/validate_quantum_configs.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:50:58.969304",
+      "last_updated": "2025-08-01T11:50:58.969304",
+      "source": "quantum_optimization"
+    }
+  ]
+}

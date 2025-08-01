@@ -1,0 +1,99 @@
+name: Performance
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 6 * * 1'  # Weekly performance baseline
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+        
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      
+    - name: Install dependencies
+      run: poetry install --with dev
+      
+    - name: Run benchmarks
+      run: |
+        poetry run pytest tests/ --benchmark-only --benchmark-json=benchmark.json
+        
+    - name: Store benchmark result
+      uses: benchmark-action/github-action-benchmark@v1
+      with:
+        tool: 'pytest'
+        output-file-path: benchmark.json
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        auto-push: true
+        comment-on-alert: true
+        alert-threshold: '150%'
+        fail-on-alert: true
+
+  memory-profiling:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+        
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      
+    - name: Install dependencies and profiling tools
+      run: |
+        poetry install --with dev
+        poetry add --group dev memory-profiler psutil
+        
+    - name: Run memory profiling
+      run: |
+        poetry run python -m pytest tests/unit/ --maxfail=1 -v \
+          --tb=short --capture=no \
+          -k "not quantum" \
+          --profile-svg
+        
+    - name: Upload profiling results
+      uses: actions/upload-artifact@v3
+      with:
+        name: memory-profiles
+        path: prof/
+
+  load-testing:
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+        
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      
+    - name: Install dependencies
+      run: poetry install --with dev
+      
+    - name: Run load tests
+      run: |
+        poetry run python scripts/compare_benchmarks.py --output load-test-results.json
+        
+    - name: Upload load test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: load-test-results
+        path: load-test-results.json
