@@ -1,0 +1,287 @@
+{
+  "generated_at": "2025-08-01T11:55:01.701871",
+  "repository": "quantum-agent-scheduler",
+  "total_items": 14,
+  "items": [
+    {
+      "id": "td-0",
+      "title": "Technical debt in value-engine.py:147",
+      "description": "Code cleanup needed",
+      "category": "technical_debt",
+      "priority": "medium",
+      "wsjf_score": 9.5,
+      "ice_score": 38.400000000000006,
+      "technical_debt_score": 20.0,
+      "composite_score": 15.984,
+      "estimated_hours": 2.0,
+      "confidence": 0.8,
+      "files_affected": [
+        ".terragon/value-engine.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.653609",
+      "last_updated": "2025-08-01T11:55:01.653609",
+      "source": "git_history"
+    },
+    {
+      "id": "td-1",
+      "title": "Technical debt in value-engine.py:148",
+      "description": "Bug fix required",
+      "category": "technical_debt",
+      "priority": "medium",
+      "wsjf_score": 9.5,
+      "ice_score": 38.400000000000006,
+      "technical_debt_score": 20.0,
+      "composite_score": 15.984,
+      "estimated_hours": 2.0,
+      "confidence": 0.8,
+      "files_affected": [
+        ".terragon/value-engine.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.660570",
+      "last_updated": "2025-08-01T11:55:01.660570",
+      "source": "git_history"
+    },
+    {
+      "id": "td-2",
+      "title": "Technical debt in value-engine.py:149",
+      "description": "Critical issue",
+      "category": "technical_debt",
+      "priority": "medium",
+      "wsjf_score": 9.5,
+      "ice_score": 38.400000000000006,
+      "technical_debt_score": 20.0,
+      "composite_score": 15.984,
+      "estimated_hours": 2.0,
+      "confidence": 0.8,
+      "files_affected": [
+        ".terragon/value-engine.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.667399",
+      "last_updated": "2025-08-01T11:55:01.667399",
+      "source": "git_history"
+    },
+    {
+      "id": "td-3",
+      "title": "Technical debt in README.md:10",
+      "description": "Critical issue",
+      "category": "technical_debt",
+      "priority": "medium",
+      "wsjf_score": 9.5,
+      "ice_score": 38.400000000000006,
+      "technical_debt_score": 20.0,
+      "composite_score": 15.984,
+      "estimated_hours": 2.0,
+      "confidence": 0.8,
+      "files_affected": [
+        "docs/adr/README.md"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.667429",
+      "last_updated": "2025-08-01T11:55:01.667429",
+      "source": "git_history"
+    },
+    {
+      "id": "td-4",
+      "title": "Technical debt in value-engine.py:150",
+      "description": "Temporary solution needs refactoring",
+      "category": "technical_debt",
+      "priority": "medium",
+      "wsjf_score": 9.5,
+      "ice_score": 38.400000000000006,
+      "technical_debt_score": 20.0,
+      "composite_score": 15.984,
+      "estimated_hours": 2.0,
+      "confidence": 0.8,
+      "files_affected": [
+        ".terragon/value-engine.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.673779",
+      "last_updated": "2025-08-01T11:55:01.673779",
+      "source": "git_history"
+    },
+    {
+      "id": "td-5",
+      "title": "Technical debt in value-engine.py:151",
+      "description": "Legacy code removal",
+      "category": "technical_debt",
+      "priority": "medium",
+      "wsjf_score": 9.5,
+      "ice_score": 38.400000000000006,
+      "technical_debt_score": 20.0,
+      "composite_score": 15.984,
+      "estimated_hours": 2.0,
+      "confidence": 0.8,
+      "files_affected": [
+        ".terragon/value-engine.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.680179",
+      "last_updated": "2025-08-01T11:55:01.680179",
+      "source": "git_history"
+    },
+    {
+      "id": "td-6",
+      "title": "Technical debt in value-engine.py:152",
+      "description": "Performance improvement needed",
+      "category": "technical_debt",
+      "priority": "medium",
+      "wsjf_score": 9.5,
+      "ice_score": 38.400000000000006,
+      "technical_debt_score": 20.0,
+      "composite_score": 15.984,
+      "estimated_hours": 2.0,
+      "confidence": 0.8,
+      "files_affected": [
+        ".terragon/value-engine.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.686356",
+      "last_updated": "2025-08-01T11:55:01.686356",
+      "source": "git_history"
+    },
+    {
+      "id": "quantum-opt-validate_quantum_configs",
+      "title": "Add quantum circuit optimization to validate_quantum_configs.py",
+      "description": "Implement quantum circuit optimization for better performance",
+      "category": "quantum_optimization",
+      "priority": "high",
+      "wsjf_score": 3.8333333333333335,
+      "ice_score": 27.200000000000003,
+      "technical_debt_score": 12.0,
+      "composite_score": 11.708,
+      "estimated_hours": 6.0,
+      "confidence": 0.8,
+      "files_affected": [
+        "/root/repo/scripts/validate_quantum_configs.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.698615",
+      "last_updated": "2025-08-01T11:55:01.698615",
+      "source": "quantum_optimization"
+    },
+    {
+      "id": "quantum-opt-test_quantum_backends",
+      "title": "Add quantum circuit optimization to test_quantum_backends.py",
+      "description": "Implement quantum circuit optimization for better performance",
+      "category": "quantum_optimization",
+      "priority": "high",
+      "wsjf_score": 3.8333333333333335,
+      "ice_score": 27.200000000000003,
+      "technical_debt_score": 12.0,
+      "composite_score": 11.708,
+      "estimated_hours": 6.0,
+      "confidence": 0.8,
+      "files_affected": [
+        "/root/repo/tests/integration/test_quantum_backends.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.698770",
+      "last_updated": "2025-08-01T11:55:01.698770",
+      "source": "quantum_optimization"
+    },
+    {
+      "id": "quantum-opt-test_quantum_backends",
+      "title": "Add quantum circuit optimization to test_quantum_backends.py",
+      "description": "Implement quantum circuit optimization for better performance",
+      "category": "quantum_optimization",
+      "priority": "high",
+      "wsjf_score": 3.8333333333333335,
+      "ice_score": 27.200000000000003,
+      "technical_debt_score": 12.0,
+      "composite_score": 11.708,
+      "estimated_hours": 6.0,
+      "confidence": 0.8,
+      "files_affected": [
+        "/root/repo/tests/integration/test_quantum_backends.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.698821",
+      "last_updated": "2025-08-01T11:55:01.698821",
+      "source": "quantum_optimization"
+    },
+    {
+      "id": "perf-value-engine",
+      "title": "Optimize large file value-engine.py",
+      "description": "File has 632 lines, consider refactoring for performance",
+      "category": "performance",
+      "priority": "medium",
+      "wsjf_score": 5.0,
+      "ice_score": 39.199999999999996,
+      "technical_debt_score": 15.0,
+      "composite_score": 9.991999999999999,
+      "estimated_hours": 3.0,
+      "confidence": 0.7,
+      "files_affected": [
+        "/root/repo/.terragon/value-engine.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.691455",
+      "last_updated": "2025-08-01T11:55:01.691455",
+      "source": "performance_profiling"
+    },
+    {
+      "id": "perf-autonomous-executor",
+      "title": "Optimize large file autonomous-executor.py",
+      "description": "File has 447 lines, consider refactoring for performance",
+      "category": "performance",
+      "priority": "medium",
+      "wsjf_score": 5.0,
+      "ice_score": 39.199999999999996,
+      "technical_debt_score": 15.0,
+      "composite_score": 9.991999999999999,
+      "estimated_hours": 3.0,
+      "confidence": 0.7,
+      "files_affected": [
+        "/root/repo/.terragon/autonomous-executor.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.691666",
+      "last_updated": "2025-08-01T11:55:01.691666",
+      "source": "performance_profiling"
+    },
+    {
+      "id": "perf-scheduler",
+      "title": "Optimize large file scheduler.py",
+      "description": "File has 506 lines, consider refactoring for performance",
+      "category": "performance",
+      "priority": "medium",
+      "wsjf_score": 5.0,
+      "ice_score": 39.199999999999996,
+      "technical_debt_score": 15.0,
+      "composite_score": 9.991999999999999,
+      "estimated_hours": 3.0,
+      "confidence": 0.7,
+      "files_affected": [
+        "/root/repo/.terragon/scheduler.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.691831",
+      "last_updated": "2025-08-01T11:55:01.691831",
+      "source": "performance_profiling"
+    },
+    {
+      "id": "quantum-fallback-validate_quantum_configs",
+      "title": "Add classical fallback to validate_quantum_configs.py",
+      "description": "Implement classical fallback for quantum backend failures",
+      "category": "quantum_optimization",
+      "priority": "medium",
+      "wsjf_score": 5.0,
+      "ice_score": 45.900000000000006,
+      "technical_debt_score": 8.0,
+      "composite_score": 7.959,
+      "estimated_hours": 4.0,
+      "confidence": 0.9,
+      "files_affected": [
+        "/root/repo/scripts/validate_quantum_configs.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.698713",
+      "last_updated": "2025-08-01T11:55:01.698713",
+      "source": "quantum_optimization"
+    }
+  ]
+}
