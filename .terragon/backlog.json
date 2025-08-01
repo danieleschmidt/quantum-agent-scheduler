@@ -1,28 +1,70 @@
 {
-  "generated_at": "2025-08-01T11:50:58.971925",
+  "generated_at": "2025-08-01T11:55:01.701871",
   "repository": "quantum-agent-scheduler",
-  "total_items": 8,
+  "total_items": 14,
   "items": [
     {
-      "id": "infra-github-workflows",
-      "title": "Deploy GitHub Actions workflows",
-      "description": "Copy workflow templates to .github/workflows/ for CI/CD automation",
-      "category": "infrastructure",
-      "priority": "high",
-      "wsjf_score": 10.5,
-      "ice_score": 53.199999999999996,
-      "technical_debt_score": 4.0,
-      "composite_score": 18.497999999999998,
+      "id": "td-0",
+      "title": "Technical debt in value-engine.py:147",
+      "description": "Code cleanup needed",
+      "category": "technical_debt",
+      "priority": "medium",
+      "wsjf_score": 9.5,
+      "ice_score": 38.400000000000006,
+      "technical_debt_score": 20.0,
+      "composite_score": 15.984,
       "estimated_hours": 2.0,
-      "confidence": 0.95,
-      "files_affected": [],
+      "confidence": 0.8,
+      "files_affected": [
+        ".terragon/value-engine.py"
+      ],
       "dependencies": [],
-      "discovered_at": "2025-08-01T11:50:58.971586",
-      "last_updated": "2025-08-01T11:50:58.971586",
-      "source": "infrastructure_analysis"
+      "discovered_at": "2025-08-01T11:55:01.653609",
+      "last_updated": "2025-08-01T11:55:01.653609",
+      "source": "git_history"
     },
     {
-      "id": "td-0",
+      "id": "td-1",
+      "title": "Technical debt in value-engine.py:148",
+      "description": "Bug fix required",
+      "category": "technical_debt",
+      "priority": "medium",
+      "wsjf_score": 9.5,
+      "ice_score": 38.400000000000006,
+      "technical_debt_score": 20.0,
+      "composite_score": 15.984,
+      "estimated_hours": 2.0,
+      "confidence": 0.8,
+      "files_affected": [
+        ".terragon/value-engine.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.660570",
+      "last_updated": "2025-08-01T11:55:01.660570",
+      "source": "git_history"
+    },
+    {
+      "id": "td-2",
+      "title": "Technical debt in value-engine.py:149",
+      "description": "Critical issue",
+      "category": "technical_debt",
+      "priority": "medium",
+      "wsjf_score": 9.5,
+      "ice_score": 38.400000000000006,
+      "technical_debt_score": 20.0,
+      "composite_score": 15.984,
+      "estimated_hours": 2.0,
+      "confidence": 0.8,
+      "files_affected": [
+        ".terragon/value-engine.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.667399",
+      "last_updated": "2025-08-01T11:55:01.667399",
+      "source": "git_history"
+    },
+    {
+      "id": "td-3",
       "title": "Technical debt in README.md:10",
       "description": "Critical issue",
       "category": "technical_debt",
@@ -37,8 +79,68 @@
         "docs/adr/README.md"
       ],
       "dependencies": [],
-      "discovered_at": "2025-08-01T11:50:58.939715",
-      "last_updated": "2025-08-01T11:50:58.939715",
+      "discovered_at": "2025-08-01T11:55:01.667429",
+      "last_updated": "2025-08-01T11:55:01.667429",
+      "source": "git_history"
+    },
+    {
+      "id": "td-4",
+      "title": "Technical debt in value-engine.py:150",
+      "description": "Temporary solution needs refactoring",
+      "category": "technical_debt",
+      "priority": "medium",
+      "wsjf_score": 9.5,
+      "ice_score": 38.400000000000006,
+      "technical_debt_score": 20.0,
+      "composite_score": 15.984,
+      "estimated_hours": 2.0,
+      "confidence": 0.8,
+      "files_affected": [
+        ".terragon/value-engine.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.673779",
+      "last_updated": "2025-08-01T11:55:01.673779",
+      "source": "git_history"
+    },
+    {
+      "id": "td-5",
+      "title": "Technical debt in value-engine.py:151",
+      "description": "Legacy code removal",
+      "category": "technical_debt",
+      "priority": "medium",
+      "wsjf_score": 9.5,
+      "ice_score": 38.400000000000006,
+      "technical_debt_score": 20.0,
+      "composite_score": 15.984,
+      "estimated_hours": 2.0,
+      "confidence": 0.8,
+      "files_affected": [
+        ".terragon/value-engine.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.680179",
+      "last_updated": "2025-08-01T11:55:01.680179",
+      "source": "git_history"
+    },
+    {
+      "id": "td-6",
+      "title": "Technical debt in value-engine.py:152",
+      "description": "Performance improvement needed",
+      "category": "technical_debt",
+      "priority": "medium",
+      "wsjf_score": 9.5,
+      "ice_score": 38.400000000000006,
+      "technical_debt_score": 20.0,
+      "composite_score": 15.984,
+      "estimated_hours": 2.0,
+      "confidence": 0.8,
+      "files_affected": [
+        ".terragon/value-engine.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.686356",
+      "last_updated": "2025-08-01T11:55:01.686356",
       "source": "git_history"
     },
     {
@@ -57,8 +159,8 @@
         "/root/repo/scripts/validate_quantum_configs.py"
       ],
       "dependencies": [],
-      "discovered_at": "2025-08-01T11:50:58.969202",
-      "last_updated": "2025-08-01T11:50:58.969202",
+      "discovered_at": "2025-08-01T11:55:01.698615",
+      "last_updated": "2025-08-01T11:55:01.698615",
       "source": "quantum_optimization"
     },
     {
@@ -77,8 +179,8 @@
         "/root/repo/tests/integration/test_quantum_backends.py"
       ],
       "dependencies": [],
-      "discovered_at": "2025-08-01T11:50:58.969371",
-      "last_updated": "2025-08-01T11:50:58.969371",
+      "discovered_at": "2025-08-01T11:55:01.698770",
+      "last_updated": "2025-08-01T11:55:01.698770",
       "source": "quantum_optimization"
     },
     {
@@ -97,8 +199,8 @@
         "/root/repo/tests/integration/test_quantum_backends.py"
       ],
       "dependencies": [],
-      "discovered_at": "2025-08-01T11:50:58.969423",
-      "last_updated": "2025-08-01T11:50:58.969423",
+      "discovered_at": "2025-08-01T11:55:01.698821",
+      "last_updated": "2025-08-01T11:55:01.698821",
       "source": "quantum_optimization"
     },
     {
@@ -117,8 +219,8 @@
         "/root/repo/.terragon/value-engine.py"
       ],
       "dependencies": [],
-      "discovered_at": "2025-08-01T11:50:58.963423",
-      "last_updated": "2025-08-01T11:50:58.963423",
+      "discovered_at": "2025-08-01T11:55:01.691455",
+      "last_updated": "2025-08-01T11:55:01.691455",
       "source": "performance_profiling"
     },
     {
@@ -137,8 +239,28 @@
         "/root/repo/.terragon/autonomous-executor.py"
       ],
       "dependencies": [],
-      "discovered_at": "2025-08-01T11:50:58.963649",
-      "last_updated": "2025-08-01T11:50:58.963649",
+      "discovered_at": "2025-08-01T11:55:01.691666",
+      "last_updated": "2025-08-01T11:55:01.691666",
+      "source": "performance_profiling"
+    },
+    {
+      "id": "perf-scheduler",
+      "title": "Optimize large file scheduler.py",
+      "description": "File has 506 lines, consider refactoring for performance",
+      "category": "performance",
+      "priority": "medium",
+      "wsjf_score": 5.0,
+      "ice_score": 39.199999999999996,
+      "technical_debt_score": 15.0,
+      "composite_score": 9.991999999999999,
+      "estimated_hours": 3.0,
+      "confidence": 0.7,
+      "files_affected": [
+        "/root/repo/.terragon/scheduler.py"
+      ],
+      "dependencies": [],
+      "discovered_at": "2025-08-01T11:55:01.691831",
+      "last_updated": "2025-08-01T11:55:01.691831",
       "source": "performance_profiling"
     },
     {
@@ -157,8 +279,8 @@
         "/root/repo/scripts/validate_quantum_configs.py"
       ],
       "dependencies": [],
-      "discovered_at": "2025-08-01T11:50:58.969304",
-      "last_updated": "2025-08-01T11:50:58.969304",
+      "discovered_at": "2025-08-01T11:55:01.698713",
+      "last_updated": "2025-08-01T11:55:01.698713",
       "source": "quantum_optimization"
     }
   ]

@@ -32,6 +32,18 @@ The Terragon system implements a complete autonomous SDLC enhancement loop:
 
 ## 🚀 Quick Start
 
+### Prerequisites - Manual Workflow Setup Required
+Due to GitHub security restrictions, workflows must be manually deployed:
+
+```bash
+# Copy workflow templates to GitHub workflows directory
+mkdir -p .github/workflows
+cp docs/workflows/templates/*.yml .github/workflows/
+git add .github/workflows/
+git commit -m "feat: deploy GitHub Actions workflows for CI/CD"
+git push
+```
+
 ### Run Value Discovery
 ```bash
 # Discover all value opportunities and generate backlog
