@@ -1,0 +1,50 @@
+# Global code owners
+* @danieleschmidt
+
+# Core architecture and quantum components
+/src/quantum_scheduler/core/ @danieleschmidt
+/src/quantum_scheduler/backends/ @danieleschmidt
+/src/quantum_scheduler/constraints/ @danieleschmidt
+
+# API and integration components
+/src/quantum_scheduler/api/ @danieleschmidt
+/src/quantum_scheduler/integrations/ @danieleschmidt
+
+# Configuration and deployment
+/config/ @danieleschmidt
+/docker-compose*.yml @danieleschmidt
+/Dockerfile @danieleschmidt
+/k8s/ @danieleschmidt
+/observability/ @danieleschmidt
+
+# CI/CD and automation
+/.github/ @danieleschmidt
+/scripts/ @danieleschmidt
+/.pre-commit-config.yaml @danieleschmidt
+
+# Documentation
+/docs/ @danieleschmidt
+/README.md @danieleschmidt
+/CONTRIBUTING.md @danieleschmidt
+/ARCHITECTURE.md @danieleschmidt
+
+# Security and compliance
+/SECURITY.md @danieleschmidt
+/.secrets.baseline @danieleschmidt
+
+# Testing infrastructure
+/tests/ @danieleschmidt
+/pytest.ini @danieleschmidt
+/tox.ini @danieleschmidt
+
+# Project configuration
+/pyproject.toml @danieleschmidt
+/poetry.lock @danieleschmidt
+/Makefile @danieleschmidt
+/package.json @danieleschmidt
+
+# Environment and tooling
+/.env.example @danieleschmidt
+/.editorconfig @danieleschmidt
+/.gitignore @danieleschmidt
+/.dockerignore @danieleschmidt
