@@ -1,51 +1,129 @@
 # Manual Setup Required
 
-## GitHub Repository Configuration
+This document outlines the manual setup steps required to complete the SDLC implementation due to GitHub App permission limitations.
 
-### 1. Branch Protection Rules
+## 🚨 Required GitHub Actions Setup
+
+The Terragon autonomous SDLC implementation has created comprehensive workflow templates, but GitHub App permissions prevent automatic workflow creation. Repository maintainers must manually create these workflow files.
+
+## 📋 Required Actions
+
+### 1. Create GitHub Actions Workflows
+
+Copy the workflow templates from `docs/workflows/templates/` to `.github/workflows/`:
+
+```bash
+# Create workflows directory
+mkdir -p .github/workflows
+
+# Copy all workflow templates
+cp docs/workflows/templates/*.yml .github/workflows/
+
+# Verify workflows are in place
+ls -la .github/workflows/
 ```
-Settings > Branches > Add rule for 'main'
-- Require pull request reviews (1+ reviewers)
-- Require status checks to pass
+
+### Required Workflow Files:
+
+#### Core CI/CD Workflows
+- **`ci.yml`** - Pull request validation, testing, security scanning
+- **`release.yml`** - Automated releases with semantic versioning
+- **`docs.yml`** - Documentation building and deployment
+
+#### Security Workflows  
+- **`security.yml`** - Comprehensive security scanning (SAST, DAST, dependency scan)
+- **`container-security.yml`** - Container image vulnerability scanning
+
+#### Specialized Workflows
+- **`quantum-integration.yml`** - Quantum backend integration testing
+- **`performance.yml`** - Performance benchmarking and regression testing
+- **`health-check.yml`** - Production health monitoring
+
+### 2. Configure Repository Settings
+
+#### Branch Protection Rules
+Enable branch protection for main branch via GitHub UI:
+- Require pull request reviews (2 reviewers)
+- Require status checks to pass before merging
+- Require branches to be up to date before merging
 - Restrict pushes to main branch
+- Include administrators in restrictions
+
+#### Repository Secrets
+Configure the following secrets in repository settings:
+
+**Quantum Provider Credentials:**
+```
+AWS_ACCESS_KEY_ID          # AWS Braket access
+AWS_SECRET_ACCESS_KEY      # AWS Braket secret
+QISKIT_IBM_TOKEN          # IBM Quantum token
+DWAVE_API_TOKEN           # D-Wave API token
 ```
 
-### 2. Security Features
+**Container Registry:**
 ```
-Settings > Security & analysis
-- Enable Dependency graph
-- Enable Dependabot alerts
-- Enable Dependabot security updates
-- Configure CodeQL analysis
+REGISTRY_USERNAME         # Container registry username
+REGISTRY_PASSWORD         # Container registry password/token
 ```
 
-### 3. GitHub Actions Workflows
-Create these workflow files manually:
-- `.github/workflows/ci.yml` - CI/CD pipeline
-- `.github/workflows/security.yml` - Security scanning
-- `.github/workflows/release.yml` - Release automation
-
-### 4. Repository Settings
+**Security Scanning:**
 ```
-Settings > General
-- Add description and topics
-- Configure homepage URL
-- Enable/disable features as needed
+SNYK_TOKEN               # Snyk security scanning
+SONAR_TOKEN              # SonarCloud code quality
 ```
 
-## Development Environment
+### 3. Environment Configuration
 
-### Pre-commit Setup
+#### Development Environment
 ```bash
-pip install pre-commit
-pre-commit install
+# Copy environment template
+cp .env.example .env
+
+# Essential variables to configure:
+# - Database connection string
+# - Quantum provider credentials
+# - API keys and secrets
 ```
 
-### Development Dependencies
+### 4. Validation Steps
+
+#### Verify CI/CD Pipeline
 ```bash
-npm install  # For documentation tooling
+# Create test branch and PR
+git checkout -b test-setup
+git commit --allow-empty -m "test: verify CI/CD pipeline"
+git push origin test-setup
 ```
 
-## Resources
-- [Repository Setup Guide](https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories)
-- [GitHub Actions Setup](https://docs.github.com/en/actions/quickstart)
+#### Test Quantum Backends
+```bash
+# Run quantum backend validation
+npm run quantum-test
+```
+
+## 🚀 Going Live Checklist
+
+- [ ] All GitHub Actions workflows created and functional
+- [ ] Repository secrets configured
+- [ ] Branch protection rules enabled
+- [ ] Environment variables configured
+- [ ] End-to-end tests passing
+- [ ] Documentation updated
+
+## 📞 Support
+
+For setup issues:
+- **Repository Issues**: Create an issue in this repository
+- **Documentation**: Check `/docs` directory for detailed guides
+
+## 🔄 Post-Setup Tasks
+
+After completing setup:
+1. Update README with actual endpoints
+2. Configure monitoring alerts
+3. Set up regular backups
+4. Review security settings
+
+---
+
+**Note**: This setup is required due to GitHub App permission limitations. All templates are provided in `docs/workflows/templates/`.

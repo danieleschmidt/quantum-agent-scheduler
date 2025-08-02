@@ -1,0 +1,127 @@
+{
+  "small_problem": {
+    "agents": [
+      {"id": "agent1", "skills": ["python", "ml"], "capacity": 2, "cost_per_hour": 50},
+      {"id": "agent2", "skills": ["java", "web"], "capacity": 3, "cost_per_hour": 40},
+      {"id": "agent3", "skills": ["python", "web"], "capacity": 2, "cost_per_hour": 45}
+    ],
+    "tasks": [
+      {"id": "task1", "required_skills": ["python"], "duration": 2, "priority": 5, "deadline": null},
+      {"id": "task2", "required_skills": ["web"], "duration": 1, "priority": 3, "deadline": null},
+      {"id": "task3", "required_skills": ["ml", "python"], "duration": 3, "priority": 8, "deadline": null}
+    ],
+    "constraints": {
+      "max_concurrent_tasks": 2,
+      "skill_match_required": true,
+      "deadline_enforcement": false
+    },
+    "expected_solution": {
+      "assignments": {"task1": "agent1", "task2": "agent3", "task3": "agent1"},
+      "start_times": {"task1": 0, "task2": 0, "task3": 2},
+      "total_cost": 475,
+      "makespan": 5
+    }
+  },
+  
+  "medium_problem": {
+    "agents": [
+      {"id": "agent1", "skills": ["python", "ml", "data"], "capacity": 3, "cost_per_hour": 60},
+      {"id": "agent2", "skills": ["java", "web", "backend"], "capacity": 4, "cost_per_hour": 55},
+      {"id": "agent3", "skills": ["python", "web", "frontend"], "capacity": 2, "cost_per_hour": 50},
+      {"id": "agent4", "skills": ["ml", "data", "analytics"], "capacity": 3, "cost_per_hour": 65},
+      {"id": "agent5", "skills": ["java", "backend", "database"], "capacity": 4, "cost_per_hour": 58}
+    ],
+    "tasks": [
+      {"id": "task1", "required_skills": ["python", "data"], "duration": 4, "priority": 7, "deadline": 12},
+      {"id": "task2", "required_skills": ["web", "frontend"], "duration": 3, "priority": 5, "deadline": 10},
+      {"id": "task3", "required_skills": ["ml"], "duration": 6, "priority": 9, "deadline": 15},
+      {"id": "task4", "required_skills": ["java", "backend"], "duration": 2, "priority": 4, "deadline": 8},
+      {"id": "task5", "required_skills": ["database"], "duration": 3, "priority": 6, "deadline": 11},
+      {"id": "task6", "required_skills": ["analytics", "data"], "duration": 5, "priority": 8, "deadline": 14}
+    ],
+    "constraints": {
+      "max_concurrent_tasks": 3,
+      "skill_match_required": true,
+      "deadline_enforcement": true,
+      "resource_contention_penalty": 1.5
+    }
+  },
+  
+  "large_problem": {
+    "num_agents": 20,
+    "num_tasks": 50,
+    "skill_categories": ["python", "java", "ml", "web", "data", "backend", "frontend", "mobile", "cloud", "security"],
+    "constraints": {
+      "max_concurrent_tasks": 5,
+      "skill_match_required": true,
+      "deadline_enforcement": true,
+      "resource_contention_penalty": 2.0,
+      "priority_weight": 1.5,
+      "cost_optimization": true
+    },
+    "generation_seed": 42,
+    "complexity_metrics": {
+      "expected_variables": 1000,
+      "expected_constraints": 2500,
+      "sparsity_ratio": 0.15,
+      "quantum_advantage_threshold": 100
+    }
+  },
+  
+  "stress_test_problem": {
+    "num_agents": 100,
+    "num_tasks": 500,
+    "skill_categories": ["python", "java", "ml", "web", "data", "backend", "frontend", "mobile", "cloud", "security", 
+                        "devops", "testing", "architecture", "product", "design", "research", "analytics", "finance"],
+    "constraints": {
+      "max_concurrent_tasks": 10,
+      "skill_match_required": true,
+      "deadline_enforcement": true,
+      "resource_contention_penalty": 3.0,
+      "geographic_constraints": true,
+      "team_collaboration_bonus": 0.1,
+      "experience_matching": true
+    },
+    "generation_seed": 12345,
+    "complexity_metrics": {
+      "expected_variables": 50000,
+      "expected_constraints": 125000,
+      "sparsity_ratio": 0.05,
+      "quantum_advantage_threshold": 1000,
+      "classical_timeout_threshold": 3600
+    }
+  },
+  
+  "infeasible_problem": {
+    "agents": [
+      {"id": "agent1", "skills": ["python"], "capacity": 1, "cost_per_hour": 50}
+    ],
+    "tasks": [
+      {"id": "task1", "required_skills": ["java"], "duration": 2, "priority": 5, "deadline": 3},
+      {"id": "task2", "required_skills": ["ml"], "duration": 1, "priority": 3, "deadline": 2}
+    ],
+    "constraints": {
+      "skill_match_required": true
+    },
+    "expected_result": "infeasible"
+  },
+  
+  "dependency_problem": {
+    "agents": [
+      {"id": "agent1", "skills": ["python", "ml"], "capacity": 3, "cost_per_hour": 60},
+      {"id": "agent2", "skills": ["web", "frontend"], "capacity": 2, "cost_per_hour": 50},
+      {"id": "agent3", "skills": ["backend", "database"], "capacity": 4, "cost_per_hour": 55}
+    ],
+    "tasks": [
+      {"id": "setup", "required_skills": ["backend"], "duration": 2, "priority": 10, "dependencies": []},
+      {"id": "data_prep", "required_skills": ["python"], "duration": 3, "priority": 8, "dependencies": ["setup"]},
+      {"id": "model_train", "required_skills": ["ml"], "duration": 5, "priority": 9, "dependencies": ["data_prep"]},
+      {"id": "ui_design", "required_skills": ["frontend"], "duration": 4, "priority": 6, "dependencies": ["setup"]},
+      {"id": "integration", "required_skills": ["web"], "duration": 2, "priority": 7, "dependencies": ["model_train", "ui_design"]}
+    ],
+    "constraints": {
+      "dependency_enforcement": true,
+      "max_concurrent_tasks": 2
+    }
+  }
+}

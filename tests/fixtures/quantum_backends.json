@@ -1,0 +1,79 @@
+{
+  "aws_braket": {
+    "device_arn": "arn:aws:braket:us-east-1::device/quantum-simulator/amazon/sv1",
+    "s3_bucket": "test-braket-bucket",
+    "s3_prefix": "quantum-scheduler-tests/",
+    "shots": 100,
+    "poll_timeout_seconds": 300,
+    "mock_response": {
+      "measurements": [[1, 0, 1], [0, 1, 0], [1, 1, 0]],
+      "measurement_counts": {"101": 1, "010": 1, "110": 1},
+      "task_metadata": {
+        "id": "test-task-123",
+        "shots": 100,
+        "deviceArn": "arn:aws:braket:us-east-1::device/quantum-simulator/amazon/sv1"
+      }
+    }
+  },
+  "ibm_quantum": {
+    "backend_name": "ibmq_qasm_simulator",
+    "hub": "ibm-q",
+    "group": "open", 
+    "project": "main",
+    "shots": 1024,
+    "optimization_level": 1,
+    "mock_response": {
+      "counts": {"000": 412, "001": 138, "010": 147, "011": 89, "100": 76, "101": 54, "110": 67, "111": 41},
+      "job_id": "test-job-456",
+      "backend_name": "ibmq_qasm_simulator",
+      "success": true
+    }
+  },
+  "azure_quantum": {
+    "resource_id": "/subscriptions/test-sub/resourceGroups/test-rg/providers/Microsoft.Quantum/Workspaces/test-workspace",
+    "location": "westus",
+    "provider": "ionq",
+    "target": "ionq.simulator",
+    "shots": 100,
+    "mock_response": {
+      "histogram": {"0": 0.5, "1": 0.3, "2": 0.2},
+      "job_id": "test-azure-789",
+      "status": "succeeded"
+    }
+  },
+  "dwave": {
+    "solver": "Advantage_system6.1",
+    "num_reads": 100,
+    "annealing_time": 20,
+    "chain_strength": 1.0,
+    "mock_response": {
+      "samples": [
+        {"0": 1, "1": 0, "2": 1},
+        {"0": 0, "1": 1, "2": 0},
+        {"0": 1, "1": 1, "2": 0}
+      ],
+      "energies": [-2.5, -1.8, -2.1],
+      "num_occurrences": [45, 35, 20],
+      "timing": {
+        "qpu_access_time": 15234,
+        "qpu_programming_time": 8945,
+        "qpu_sampling_time": 100,
+        "qpu_anneal_time_per_sample": 20,
+        "qpu_readout_time_per_sample": 274,
+        "total_post_processing_time": 1250
+      }
+    }
+  },
+  "classical_fallback": {
+    "solver": "gurobi",
+    "time_limit": 300,
+    "threads": 4,
+    "mock_response": {
+      "solution": {"task1": "agent1", "task2": "agent2", "task3": "agent1"},
+      "objective_value": 42.5,
+      "solve_time": 0.125,
+      "status": "optimal",
+      "gap": 0.0
+    }
+  }
+}

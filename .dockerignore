@@ -1,0 +1,129 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# Poetry (keep poetry.lock for production builds)
+# poetry.lock
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ruff
+.ruff_cache/
+
+# Environments
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Documentation
+docs/_build/
+site/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Test artifacts
+.pytest_cache/
+htmlcov/
+.coverage
+.tox/
+tests/
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+
+# Development tools
+.pre-commit-config.yaml
+.pre-commit-hooks/
+.secrets.baseline
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+azure-pipelines.yml
+.circleci/
+
+# Quantum credentials (sensitive)
+.aws/
+.qiskit/
+.dwave/
+*.pem
+*.key
+*credentials*
+
+# Logs
+logs/
+*.log
+log.*
+
+# Monitoring
+observability/
+grafana/
+prometheus/
+
+# Benchmarks
+benchmarks/
+results/
+*.csv
+*.json.bak
