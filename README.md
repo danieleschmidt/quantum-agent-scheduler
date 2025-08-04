@@ -1,6 +1,6 @@
 # quantum-agent-scheduler
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/your-org/quantum-agent-scheduler/ci.yml?branch=main)](https://github.com/your-org/quantum-agent-scheduler/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/danieleschmidt/quantum-agent-scheduler/ci.yml?branch=main)](https://github.com/danieleschmidt/quantum-agent-scheduler/actions)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Quantum](https://img.shields.io/badge/Qiskit-1.0+-purple.svg)](https://qiskit.org/)
@@ -53,7 +53,7 @@ pip install quantum-agent-scheduler[dwave]   # D-Wave
 ### Development Installation
 
 ```bash
-git clone https://github.com/your-org/quantum-agent-scheduler
+git clone https://github.com/danieleschmidt/quantum-agent-scheduler
 cd quantum-agent-scheduler
 poetry install --with dev,quantum
 ```
@@ -481,7 +481,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ```bash
 # Clone and install
-git clone https://github.com/your-org/quantum-agent-scheduler
+git clone https://github.com/danieleschmidt/quantum-agent-scheduler
 cd quantum-agent-scheduler
 poetry install --with dev
 
@@ -505,7 +505,7 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ## 📞 Support
 
-- 📧 Email: quantum-ai@your-org.com
-- 💬 Discord: [Join our community](https://discord.gg/your-org)
-- 📖 Documentation: [Full docs](https://docs.your-org.com/quantum-scheduler)
-- 🎓 Course: [Quantum Computing for AI](https://learn.your-org.com/quantum-ai)
+- 📧 Email: quantum-ai@danieleschmidt.com
+- 💬 Discord: [Join our community](https://discord.gg/danieleschmidt)
+- 📖 Documentation: [Full docs](https://docs.danieleschmidt.com/quantum-scheduler)
+- 🎓 Course: [Quantum Computing for AI](https://learn.danieleschmidt.com/quantum-ai)
