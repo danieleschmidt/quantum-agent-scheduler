@@ -87,10 +87,14 @@ class Solution:
     
     @property
     def utilization_ratio(self) -> float:
-        """Calculate resource utilization ratio."""
+        """Calculate resource utilization ratio (0.0 to 1.0)."""
         if not self.assignments:
             return 0.0
-        return len(self.assignments) / max(1, len(set(self.assignments.values())))
+        unique_agents = len(set(self.assignments.values()))
+        if unique_agents == 0:
+            return 0.0
+        # Calculate based on agent utilization, capped at 1.0
+        return min(1.0, len(self.assignments) / max(1, unique_agents))
 
 
 @dataclass

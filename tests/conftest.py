@@ -69,9 +69,13 @@ def pytest_configure(config):
 
 def pytest_collection_modifyitems(config, items):
     """Skip quantum tests if quantum hardware not available."""
-    if config.getoption("--quantum"):
-        # Run quantum tests
-        return
+    try:
+        if config.getoption("--quantum"):
+            # Run quantum tests
+            return
+    except ValueError:
+        # --quantum option not defined, skip quantum tests
+        pass
     
     skip_quantum = pytest.mark.skip(reason="need --quantum option to run")
     for item in items:
