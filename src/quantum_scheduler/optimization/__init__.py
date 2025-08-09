@@ -6,10 +6,13 @@ from .caching import (
     get_solution_cache,
     configure_cache
 )
+from .quantum_circuit_optimizer import AdaptiveCircuitOptimizer, QuantumAdvantageAnalyzer
 
 __all__ = [
     "SolutionCache",
     "ProblemOptimizer", 
     "get_solution_cache",
-    "configure_cache"
+    "configure_cache",
+    "AdaptiveCircuitOptimizer",
+    "QuantumAdvantageAnalyzer"
 ]
