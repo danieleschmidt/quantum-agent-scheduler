@@ -1,0 +1,517 @@
+---
+# Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: quantum-scheduler
+  labels:
+    name: quantum-scheduler
+    environment: production
+
+---
+# ConfigMap for application configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quantum-scheduler-config
+  namespace: quantum-scheduler
+data:
+  production.yaml: |
+    environment: production
+    log_level: INFO
+    
+    scheduler:
+      max_concurrent_jobs: 500
+      enable_auto_scaling: true
+      resource_refresh_interval: 60
+      
+    quantum:
+      providers:
+        - aws_braket
+        - ibm_quantum
+        - dwave
+        - google_quantum_ai
+      
+      optimization:
+        enable_circuit_optimization: true
+        max_optimization_level: 3
+        
+      error_correction:
+        enable_fault_tolerance: true
+        fault_tolerance_level: "high"
+        
+    cloud:
+      enable_multi_region: true
+      preferred_regions:
+        - us-east-1
+        - us-west-2
+        - eu-west-1
+        - eu-central-1
+      auto_scaling:
+        enabled: true
+        min_resources: 5
+        max_resources: 100
+        scale_threshold: 0.8
+
+---
+# Secret for sensitive configuration
+apiVersion: v1
+kind: Secret
+metadata:
+  name: quantum-scheduler-secrets
+  namespace: quantum-scheduler
+type: Opaque
+data:
+  # Base64 encoded values (replace with actual encoded secrets)
+  db-password: cGFzc3dvcmQxMjM=  # password123
+  redis-password: cmVkaXNwYXNzd29yZA==  # redispassword
+  grafana-password: Z3JhZmFuYXBhc3N3b3Jk  # grafanapassword
+  
+  # Quantum provider credentials (base64 encoded)
+  aws-access-key: YXdzLWFjY2Vzcy1rZXk=
+  aws-secret-key: YXdzLXNlY3JldC1rZXk=
+  ibm-quantum-token: aWJtLXF1YW50dW0tdG9rZW4=
+  dwave-token: ZHdhdmUtdG9rZW4=
+
+---
+# Persistent Volume Claims
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-pvc
+  namespace: quantum-scheduler
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi
+  storageClassName: fast-ssd
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redis-pvc
+  namespace: quantum-scheduler
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+  storageClassName: fast-ssd
+
+---
+# PostgreSQL Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  namespace: quantum-scheduler
+  labels:
+    app: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:15-alpine
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_DB
+          value: quantum_scheduler
+        - name: POSTGRES_USER
+          value: scheduler
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: quantum-scheduler-secrets
+              key: db-password
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata
+        volumeMounts:
+        - name: postgres-storage
+          mountPath: /var/lib/postgresql/data
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+        livenessProbe:
+          exec:
+            command:
+            - pg_isready
+            - -U
+            - scheduler
+            - -d
+            - quantum_scheduler
+          initialDelaySeconds: 30
+          periodSeconds: 10
+      volumes:
+      - name: postgres-storage
+        persistentVolumeClaim:
+          claimName: postgres-pvc
+
+---
+# PostgreSQL Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: quantum-scheduler
+spec:
+  ports:
+  - port: 5432
+    targetPort: 5432
+  selector:
+    app: postgres
+
+---
+# Redis Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: quantum-scheduler
+  labels:
+    app: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:7-alpine
+        ports:
+        - containerPort: 6379
+        command:
+        - redis-server
+        - --appendonly
+        - "yes"
+        - --maxmemory
+        - "2gb"
+        - --maxmemory-policy
+        - "allkeys-lru"
+        volumeMounts:
+        - name: redis-storage
+          mountPath: /data
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "250m"
+          limits:
+            memory: "2Gi"
+            cpu: "500m"
+        livenessProbe:
+          exec:
+            command:
+            - redis-cli
+            - ping
+          initialDelaySeconds: 30
+          periodSeconds: 10
+      volumes:
+      - name: redis-storage
+        persistentVolumeClaim:
+          claimName: redis-pvc
+
+---
+# Redis Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: quantum-scheduler
+spec:
+  ports:
+  - port: 6379
+    targetPort: 6379
+  selector:
+    app: redis
+
+---
+# Quantum Scheduler Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quantum-scheduler
+  namespace: quantum-scheduler
+  labels:
+    app: quantum-scheduler
+    version: v1.0.0
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: quantum-scheduler
+  template:
+    metadata:
+      labels:
+        app: quantum-scheduler
+        version: v1.0.0
+    spec:
+      serviceAccountName: quantum-scheduler
+      containers:
+      - name: quantum-scheduler
+        image: quantum-scheduler:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 9090
+          name: metrics
+        env:
+        - name: ENVIRONMENT
+          value: "production"
+        - name: LOG_LEVEL
+          value: "INFO"
+        - name: WORKERS
+          value: "4"
+        - name: POSTGRES_URL
+          value: "postgresql://scheduler:$(DB_PASSWORD)@postgres:5432/quantum_scheduler"
+        - name: REDIS_URL
+          value: "redis://redis:6379"
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: quantum-scheduler-secrets
+              key: db-password
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: quantum-scheduler-secrets
+              key: aws-access-key
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: quantum-scheduler-secrets
+              key: aws-secret-key
+        - name: IBM_QUANTUM_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: quantum-scheduler-secrets
+              key: ibm-quantum-token
+        - name: DWAVE_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: quantum-scheduler-secrets
+              key: dwave-token
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/config
+        - name: logs-volume
+          mountPath: /app/logs
+        resources:
+          requests:
+            memory: "4Gi"
+            cpu: "2000m"
+          limits:
+            memory: "8Gi"
+            cpu: "4000m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          timeoutSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+      volumes:
+      - name: config-volume
+        configMap:
+          name: quantum-scheduler-config
+      - name: logs-volume
+        emptyDir: {}
+
+---
+# Service Account
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: quantum-scheduler
+  namespace: quantum-scheduler
+
+---
+# ClusterRole for quantum scheduler
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: quantum-scheduler-role
+rules:
+- apiGroups: [""]
+  resources: ["pods", "services", "configmaps"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["apps"]
+  resources: ["deployments"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["metrics.k8s.io"]
+  resources: ["*"]
+  verbs: ["get", "list"]
+
+---
+# ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: quantum-scheduler-binding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: quantum-scheduler-role
+subjects:
+- kind: ServiceAccount
+  name: quantum-scheduler
+  namespace: quantum-scheduler
+
+---
+# Quantum Scheduler Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: quantum-scheduler-service
+  namespace: quantum-scheduler
+  labels:
+    app: quantum-scheduler
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+    protocol: TCP
+  - name: metrics
+    port: 9090
+    targetPort: 9090
+    protocol: TCP
+  selector:
+    app: quantum-scheduler
+
+---
+# Horizontal Pod Autoscaler
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: quantum-scheduler-hpa
+  namespace: quantum-scheduler
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: quantum-scheduler
+  minReplicas: 3
+  maxReplicas: 20
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Percent
+        value: 50
+        periodSeconds: 60
+    scaleUp:
+      stabilizationWindowSeconds: 60
+      policies:
+      - type: Percent
+        value: 100
+        periodSeconds: 30
+
+---
+# Network Policy for security
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: quantum-scheduler-network-policy
+  namespace: quantum-scheduler
+spec:
+  podSelector:
+    matchLabels:
+      app: quantum-scheduler
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: default
+    - namespaceSelector:
+        matchLabels:
+          name: monitoring
+    ports:
+    - protocol: TCP
+      port: 8080
+    - protocol: TCP
+      port: 9090
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          app: postgres
+    ports:
+    - protocol: TCP
+      port: 5432
+  - to:
+    - podSelector:
+        matchLabels:
+          app: redis
+    ports:
+    - protocol: TCP
+      port: 6379
+  - to: []  # Allow external quantum provider access
+    ports:
+    - protocol: TCP
+      port: 443
+    - protocol: TCP
+      port: 80
+
+---
+# Pod Disruption Budget
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: quantum-scheduler-pdb
+  namespace: quantum-scheduler
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: quantum-scheduler

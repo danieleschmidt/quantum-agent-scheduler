@@ -1,0 +1,273 @@
+version: '3.8'
+
+services:
+  # Main Quantum Scheduler Service
+  quantum-scheduler:
+    build:
+      context: ../..
+      dockerfile: deployment/production/Dockerfile
+      target: production
+    image: quantum-scheduler:latest
+    container_name: quantum-scheduler-prod
+    restart: unless-stopped
+    environment:
+      - ENVIRONMENT=production
+      - LOG_LEVEL=INFO
+      - REDIS_URL=redis://redis:6379
+      - POSTGRES_URL=postgresql://scheduler:${DB_PASSWORD}@postgres:5432/quantum_scheduler
+      - PROMETHEUS_METRICS_PORT=9090
+      - QUANTUM_PROVIDERS=aws_braket,ibm_quantum,dwave
+      - ENABLE_MULTI_REGION=true
+      - MAX_CONCURRENT_JOBS=500
+      - AUTO_SCALING_ENABLED=true
+    ports:
+      - "8080:8080"    # API port
+      - "9090:9090"    # Metrics port
+    volumes:
+      - ./config/production.yaml:/app/config/production.yaml:ro
+      - quantum-logs:/app/logs
+      - quantum-cache:/app/cache
+    depends_on:
+      - postgres
+      - redis
+      - prometheus
+    networks:
+      - quantum-net
+    healthcheck:
+      test: ["CMD", "python", "-m", "quantum_scheduler.health", "--check-all"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 8G
+        reservations:
+          cpus: '2.0'
+          memory: 4G
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+
+  # Quantum Circuit Optimizer Service
+  circuit-optimizer:
+    build:
+      context: ../..
+      dockerfile: deployment/production/Dockerfile.optimizer
+    image: quantum-circuit-optimizer:latest
+    container_name: circuit-optimizer-prod
+    restart: unless-stopped
+    environment:
+      - ENVIRONMENT=production
+      - LOG_LEVEL=INFO
+      - REDIS_URL=redis://redis:6379
+      - OPTIMIZATION_WORKERS=8
+      - MAX_CIRCUIT_DEPTH=1000
+    ports:
+      - "8081:8080"
+    volumes:
+      - quantum-cache:/app/cache
+    depends_on:
+      - redis
+    networks:
+      - quantum-net
+    deploy:
+      resources:
+        limits:
+          cpus: '6.0'
+          memory: 12G
+        reservations:
+          cpus: '4.0'
+          memory: 8G
+
+  # Multi-Region Orchestrator
+  cloud-orchestrator:
+    build:
+      context: ../..
+      dockerfile: deployment/production/Dockerfile.orchestrator
+    image: quantum-orchestrator:latest
+    container_name: cloud-orchestrator-prod
+    restart: unless-stopped
+    environment:
+      - ENVIRONMENT=production
+      - LOG_LEVEL=INFO
+      - REDIS_URL=redis://redis:6379
+      - MAX_REGIONS=10
+      - RESOURCE_DISCOVERY_INTERVAL=60
+      - ENABLE_AUTO_SCALING=true
+    ports:
+      - "8082:8080"
+    volumes:
+      - ./config/cloud-providers.yaml:/app/config/providers.yaml:ro
+    depends_on:
+      - redis
+    networks:
+      - quantum-net
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres-quantum-prod
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=quantum_scheduler
+      - POSTGRES_USER=scheduler
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_INITDB_ARGS=--auth-host=scram-sha-256
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - quantum-net
+    command: >
+      postgres 
+      -c shared_preload_libraries=pg_stat_statements
+      -c pg_stat_statements.track=all
+      -c max_connections=200
+      -c shared_buffers=256MB
+      -c effective_cache_size=1GB
+
+  # Redis Cache & Message Broker
+  redis:
+    image: redis:7-alpine
+    container_name: redis-quantum-prod
+    restart: unless-stopped
+    command: >
+      redis-server 
+      --appendonly yes
+      --appendfsync everysec
+      --maxmemory 2gb
+      --maxmemory-policy allkeys-lru
+      --tcp-keepalive 60
+    volumes:
+      - redis-data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - quantum-net
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # Prometheus Metrics
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus-quantum-prod
+    restart: unless-stopped
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=30d'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+      - '--web.enable-admin-api'
+    ports:
+      - "9091:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./monitoring/rules:/etc/prometheus/rules:ro
+      - prometheus-data:/prometheus
+    networks:
+      - quantum-net
+    depends_on:
+      - quantum-scheduler
+
+  # Grafana Dashboards
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana-quantum-prod
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+      - GF_INSTALL_PLUGINS=grafana-piechart-panel
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources:ro
+    networks:
+      - quantum-net
+    depends_on:
+      - prometheus
+
+  # NGINX Load Balancer & Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-quantum-prod
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/ssl/certs:ro
+      - nginx-logs:/var/log/nginx
+    networks:
+      - quantum-net
+    depends_on:
+      - quantum-scheduler
+      - circuit-optimizer
+      - cloud-orchestrator
+
+  # Log Aggregation (Optional)
+  loki:
+    image: grafana/loki:latest
+    container_name: loki-quantum-prod
+    restart: unless-stopped
+    command: -config.file=/etc/loki/local-config.yaml
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./monitoring/loki-config.yaml:/etc/loki/local-config.yaml:ro
+      - loki-data:/loki
+    networks:
+      - quantum-net
+
+  # Log Collection
+  promtail:
+    image: grafana/promtail:latest
+    container_name: promtail-quantum-prod
+    restart: unless-stopped
+    volumes:
+      - ./monitoring/promtail-config.yaml:/etc/promtail/config.yml:ro
+      - quantum-logs:/var/log/quantum:ro
+      - nginx-logs:/var/log/nginx:ro
+    networks:
+      - quantum-net
+    depends_on:
+      - loki
+
+volumes:
+  postgres-data:
+    driver: local
+  redis-data:
+    driver: local
+  prometheus-data:
+    driver: local
+  grafana-data:
+    driver: local
+  loki-data:
+    driver: local
+  quantum-logs:
+    driver: local
+  quantum-cache:
+    driver: local
+  nginx-logs:
+    driver: local
+
+networks:
+  quantum-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
