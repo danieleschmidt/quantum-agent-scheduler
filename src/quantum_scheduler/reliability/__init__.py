@@ -10,6 +10,22 @@ from .error_correction import (
     ErrorSyndrome,
     FaultToleranceMetrics
 )
+from .circuit_breaker import (
+    CircuitBreaker,
+    CircuitState,
+    CircuitBreakerError,
+    CircuitBreakerRegistry,
+    get_circuit_breaker_registry,
+    circuit_breaker
+)
+from .retry_policy import (
+    RetryPolicy,
+    RetryPolicyBuilder,
+    BackoffStrategy,
+    RetryContext,
+    retry,
+    retry_on_exception
+)
 
 __all__ = [
     "QuantumErrorCorrector",
@@ -19,5 +35,17 @@ __all__ = [
     "ErrorCorrectionCode",
     "NoiseParameters",
     "ErrorSyndrome",
-    "FaultToleranceMetrics"
+    "FaultToleranceMetrics",
+    "CircuitBreaker",
+    "CircuitState",
+    "CircuitBreakerError",
+    "CircuitBreakerRegistry",
+    "get_circuit_breaker_registry",
+    "circuit_breaker",
+    "RetryPolicy",
+    "RetryPolicyBuilder",
+    "BackoffStrategy",
+    "RetryContext",
+    "retry",
+    "retry_on_exception"
 ]

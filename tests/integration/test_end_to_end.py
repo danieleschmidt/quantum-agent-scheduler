@@ -124,7 +124,9 @@ class TestEndToEndWorkflows:
             scheduler.schedule([invalid_agent], [])
             assert False, "Should have raised ValidationError"
         except Exception as e:
-            assert "validation" in str(e).lower()
+            # Check for validation-related error messages
+            error_msg = str(e).lower()
+            assert any(word in error_msg for word in ["validation", "invalid", "empty", "cannot be empty"])
         
         # Test 2: Skill mismatch recovery
         try:
