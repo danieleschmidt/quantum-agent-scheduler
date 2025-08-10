@@ -58,7 +58,9 @@ class ClassicalBackend(Backend):
             if best_agent and agent_workload[best_agent.id] < best_agent.capacity:
                 assignments[task.id] = best_agent.id
                 agent_workload[best_agent.id] += task.duration
-                total_cost += task.duration * (1.0 / task.priority)  # Higher priority = lower cost
+                # Handle zero priority gracefully
+                priority_factor = 1.0 / max(task.priority, 0.001)  # Minimum priority to avoid division by zero
+                total_cost += task.duration * priority_factor
         
         logger.info(f"Classical solver assigned {len(assignments)} tasks")
         
