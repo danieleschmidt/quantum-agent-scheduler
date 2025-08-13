@@ -1,0 +1,160 @@
+version: '3.8'
+
+services:
+  quantum-scheduler-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    container_name: quantum-scheduler-api
+    ports:
+      - "8000:8000"
+    environment:
+      - QUANTUM_SCHEDULER_ENV=production
+      - QUANTUM_SCHEDULER_LOG_LEVEL=info
+      - QUANTUM_SCHEDULER_ENABLE_METRICS=true
+      - QUANTUM_SCHEDULER_CACHE_SIZE=10000
+      - QUANTUM_SCHEDULER_MAX_WORKERS=8
+      - QUANTUM_SCHEDULER_BACKEND_STRATEGY=hybrid
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 8G
+        reservations:
+          cpus: '2.0'
+          memory: 4G
+
+  quantum-scheduler-worker-1:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: quantum-scheduler-worker-1
+    environment:
+      - QUANTUM_SCHEDULER_ENV=production
+      - QUANTUM_SCHEDULER_LOG_LEVEL=info
+      - QUANTUM_SCHEDULER_WORKER_ID=1
+      - QUANTUM_SCHEDULER_WORKER_TYPE=hybrid
+      - REDIS_URL=redis://redis:6379
+    volumes:
+      - ./logs:/app/logs
+    depends_on:
+      - redis
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+
+  quantum-scheduler-worker-2:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: quantum-scheduler-worker-2
+    environment:
+      - QUANTUM_SCHEDULER_ENV=production
+      - QUANTUM_SCHEDULER_LOG_LEVEL=info
+      - QUANTUM_SCHEDULER_WORKER_ID=2
+      - QUANTUM_SCHEDULER_WORKER_TYPE=classical
+      - REDIS_URL=redis://redis:6379
+    volumes:
+      - ./logs:/app/logs
+    depends_on:
+      - redis
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+
+  redis:
+    image: redis:7-alpine
+    container_name: quantum-scheduler-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    command: redis-server --appendonly yes --maxmemory 2gb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: quantum-scheduler-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: quantum-scheduler-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=quantum_scheduler_2024
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana:/etc/grafana/provisioning
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+
+  nginx:
+    image: nginx:alpine
+    container_name: quantum-scheduler-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+      - ./logs:/var/log/nginx
+    depends_on:
+      - quantum-scheduler-api
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

@@ -25,23 +25,17 @@ class TestQuantumScheduler:
         """Test basic task assignment functionality."""
         scheduler = QuantumScheduler(backend="classical")
         
-        with patch.object(scheduler, '_solve') as mock_solve:
-            mock_solve.return_value = Mock(
-                assignments={"task1": "agent1", "task2": "agent2"},
-                cost=15.0,
-                solver_type="classical"
-            )
-            
-            solution = scheduler.schedule(
-                agents=sample_agents,
-                tasks=sample_tasks,
-                constraints=basic_constraints
-            )
-            
-            assert solution is not None
-            assert solution.assignments == {"task1": "agent1", "task2": "agent2"}
-            assert solution.cost == 15.0
-            assert solution.solver_type == "classical"
+        solution = scheduler.schedule(
+            agents=sample_agents,
+            tasks=sample_tasks,
+            constraints=basic_constraints
+        )
+        
+        assert solution is not None
+        assert isinstance(solution.assignments, dict)
+        assert len(solution.assignments) >= 2  # Should assign at least 2 tasks
+        assert solution.cost > 0.0  # Should have some cost
+        assert solution.solver_type == "classical"
 
     def test_skill_matching_constraint(self, sample_agents, sample_tasks):
         """Test that skill matching constraints are enforced."""
@@ -55,7 +49,9 @@ class TestQuantumScheduler:
             priority=1
         )
         
-        with pytest.raises(ValueError, match="No agent has required skills"):
+        from quantum_scheduler.core.exceptions import SkillMismatchError
+        
+        with pytest.raises(SkillMismatchError):
             scheduler.schedule(
                 agents=sample_agents,
                 tasks=[invalid_task],
