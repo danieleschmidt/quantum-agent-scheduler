@@ -1635,42 +1635,42 @@ profile = ["gprof2dot (>=2022.7.29)"]
 
 [[package]]
 name = "dimod"
-version = "0.12.14"
+version = "0.12.20"
 description = "A shared API for binary quadratic model samplers."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["main", "quantum"]
 files = [
-    {file = "dimod-0.12.14-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:46c8131a33baf9de087e8c5717b5eb2a43b99cd8225ec7e739d91945afa0535d"},
-    {file = "dimod-0.12.14-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:2b89347d208df5cb260e42d73979941d710e52dc7d9092365cdd577f0d539283"},
-    {file = "dimod-0.12.14-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:976e7e80c32266055f5ecb3392ceb0646972227707c90b1648524ea8e02b8dad"},
-    {file = "dimod-0.12.14-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f5f0d9e54eca1540c642b3cfd4cb4fd7e2b3b99f16badf8061d0397568114445"},
-    {file = "dimod-0.12.14-cp310-cp310-win_amd64.whl", hash = "sha256:223f19577753036e85838b9ba9a5e7ac7d029c5ba7e97e060d0b3d6bd57acece"},
-    {file = "dimod-0.12.14-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:dae012d68aaa9ac50fb2a03ef3a206bf14394dc304c6ac4f929323376f2fdb0e"},
-    {file = "dimod-0.12.14-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:2d67f1564b425dddc8f1219c4c677d574bab20cc4bbcad7a109b554412269e66"},
-    {file = "dimod-0.12.14-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:f43e627a238ea3496ce72cf744d1dc75131c2e8d642d8842d0fab88c860fdf55"},
-    {file = "dimod-0.12.14-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d786f07b1ef5ac88130500a3acacbdf3a7f10bc0b26d3278fcd89b4dee5a8ed1"},
-    {file = "dimod-0.12.14-cp311-cp311-win_amd64.whl", hash = "sha256:18eb7884836ec089def7dd0ee58b281b3e6cea4e06ae07fdd90ab0fcf7f95078"},
-    {file = "dimod-0.12.14-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:5cf8b151c3e7ada58e9a96993d60b8551fc0fabba8a1aea368969e0b041dd461"},
-    {file = "dimod-0.12.14-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:0ac1509e08097ef9e6dc50aefb49b921386ddd22253c28b13d8646b25d5decbd"},
-    {file = "dimod-0.12.14-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:736ecce3c68e92f74e523e0a42157557ed83dacf3453eadd11142f087b2401de"},
-    {file = "dimod-0.12.14-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0fcbc8f2fd84f4dbe0ae66a353979ac02bb568cccfa0c2a630d6d22a87383760"},
-    {file = "dimod-0.12.14-cp312-cp312-win_amd64.whl", hash = "sha256:696fdba4c84d6db4b038bc5857f463fe168884d556e44c5c788b0fa5ed4742fd"},
-    {file = "dimod-0.12.14-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:3f798a4e115feab5837418a2f41f73e105f72e33cfd42400d178940d49d8bcbf"},
-    {file = "dimod-0.12.14-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:bbfea985009985f4b701d3ff43c38a033698d3cfe0b0bdf4b33ef4acaa1cc9a3"},
-    {file = "dimod-0.12.14-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:7d6fcf0d5e95eed3e328279eedbc70024da37088b159d5a93eb32bc554bf8cc9"},
-    {file = "dimod-0.12.14-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:692fe7277c96f35164dca04dce289c44bca3e1779b99af83bfb6e042cbc77157"},
-    {file = "dimod-0.12.14-cp38-cp38-win_amd64.whl", hash = "sha256:579bc7f71ee7ef587b1fa8dceed0554d2026451d478123e7a66f5372b2b3cebf"},
-    {file = "dimod-0.12.14-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:26deec7ad3b469e78c628383ff0d6080d8e1d541b172634c94c6a488ac776f28"},
-    {file = "dimod-0.12.14-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:a722b6c6a30c42aefd73293653690403f2c8f6db58521bdbb3e99ed2aef2e7cd"},
-    {file = "dimod-0.12.14-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b384919f3f5f3da7390004255136750c2d53ea3f1a64ea1aff5b0a6044834876"},
-    {file = "dimod-0.12.14-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:85993c0a4477d3caefcd6a70fd55d143b5ffb13cc0319d22458ab651a56007f9"},
-    {file = "dimod-0.12.14-cp39-cp39-win_amd64.whl", hash = "sha256:98cdf39dc2adc83c149f4bd2d6d9ba5b3e37349d238c3ebec24875db66e04e0b"},
-    {file = "dimod-0.12.14.tar.gz", hash = "sha256:ae02597e33d8d3053202ea3cbcdd4261ee047253d416f63b812f7e19e7f3b060"},
+    {file = "dimod-0.12.20-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:f239f3609c8f9f202207ab77cb280ba2a068dc3c348702bbe90dea21a31602e2"},
+    {file = "dimod-0.12.20-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:25e01236463c74b457203cf28ba904bec080af7a38aa5f7f46c874ceebf0dffc"},
+    {file = "dimod-0.12.20-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:24bc7cb7ba7c9ebb3dd701189e1b3309fba34c85c2502890fe54fce5629f0a9f"},
+    {file = "dimod-0.12.20-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:38ade49083192c3ab0304b741fc5700b614edffb60db757b822f10fc0c3f647a"},
+    {file = "dimod-0.12.20-cp310-cp310-win_amd64.whl", hash = "sha256:bde75e93597c147dae395bb07b0faab25044c43f0531ee23505ba2b486fdb20c"},
+    {file = "dimod-0.12.20-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:6412906032575b2bc5246930df3e43ddaa9e01fb17d89001bde26c34de4a9d7a"},
+    {file = "dimod-0.12.20-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:02442f496e8a3dec856773389f928b4377805a04c7ffbd08036099e1d533b7b1"},
+    {file = "dimod-0.12.20-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:c4df18e62666d5b0deb30a4bd13e6ba712833d978f0f56c46c1311392ffcba5b"},
+    {file = "dimod-0.12.20-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:527569d96ac2b67ea342e1899ef55afbe100ff8766979a6be260e395888937ea"},
+    {file = "dimod-0.12.20-cp311-cp311-win_amd64.whl", hash = "sha256:737ebb1ab9a8c00e97fc17eeb9344ae83b8301d5c51a8a5dbca5299ed2a8be8e"},
+    {file = "dimod-0.12.20-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:b3ceb9750dbb14a2acfdc7e00a6065f40759a41acc888fabf0ec8c6078ef98b5"},
+    {file = "dimod-0.12.20-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:480f847837b4cde5aaecdda97be99a46c6c5393a1441f413432d70fd8bcc1ce7"},
+    {file = "dimod-0.12.20-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:3c425fd3b2b50c3b38708e2c316c5113a3aab1cd11a7a3b4571cae292e72aa2a"},
+    {file = "dimod-0.12.20-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e7f0a1a0d4de9a73cb874e8a9dc81f14fcb5b6575e0dba062c27d3ba386f2be0"},
+    {file = "dimod-0.12.20-cp312-cp312-win_amd64.whl", hash = "sha256:96906bf43bc9954f76999a67c51bc8010fc27ea009eadb2429fe2b927d848d0e"},
+    {file = "dimod-0.12.20-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:74097eee588c1fee357c851f06677141224352eb6c33b9a18ec05a1c1e6b36cf"},
+    {file = "dimod-0.12.20-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:90636ecddb9154a4b74cea9410b92ef74d998bd66ba9af9a925d774629857b7b"},
+    {file = "dimod-0.12.20-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:743789ec0792277d7c8a87e1098816d8a1d88da303f02643f3e8729a024822b1"},
+    {file = "dimod-0.12.20-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3542b9bd0781d0256e55d100dcf9c9e2aa750b1f76d9fc6d21993784635d0b77"},
+    {file = "dimod-0.12.20-cp313-cp313-win_amd64.whl", hash = "sha256:65da7ba1b4a7989342004cb348f5d3b2e6dab25436e3864e8260a03cad43e278"},
+    {file = "dimod-0.12.20-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:1089a6a165dbbdba5c7ccec7c3eea4639064de580152f9ee63750d45acfd4941"},
+    {file = "dimod-0.12.20-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:f81236d5f65ec1fa854348c054b6593023330f734102a9ab89c35958f05f96ea"},
+    {file = "dimod-0.12.20-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1d572830ea1bac9101f07a067047ca35a57323a6b6daf3902cd2e6b3ed2ee3c1"},
+    {file = "dimod-0.12.20-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a243613756e9be7f640b76484c06c46e37a8ab62bdb3a217329e367c6730eeb6"},
+    {file = "dimod-0.12.20-cp39-cp39-win_amd64.whl", hash = "sha256:fd96c88124791670aec430cfa9af4b89877a92075520e6d168417aeec78be0d1"},
+    {file = "dimod-0.12.20.tar.gz", hash = "sha256:da2811c5a6447056c011780ba7593177da575e1d35c2bf9990d7db4890962e5e"},
 ]
 
 [package.dependencies]
-numpy = ">=1.17.3,<2.0.0"
+numpy = ">=1.17.3"
 
 [[package]]
 name = "diskcache"
@@ -1759,14 +1759,14 @@ files = [
 
 [[package]]
 name = "dwave-cloud-client"
-version = "0.11.4"
+version = "0.13.6"
 description = "A minimal client for interacting with D-Wave cloud resources."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["main", "quantum"]
 files = [
-    {file = "dwave-cloud-client-0.11.4.tar.gz", hash = "sha256:a3698b0f861bab2b9979bf58db4f6a7bd864a9b2ec946d7f4ccd3baca49642e4"},
-    {file = "dwave_cloud_client-0.11.4-py3-none-any.whl", hash = "sha256:fe02e47178d520d613844447be34fc16f477a0d50f347f403216471918482cb5"},
+    {file = "dwave_cloud_client-0.13.6-py3-none-any.whl", hash = "sha256:051b03a2334ed2074bd2e798ce52159cbf4374dd56b5d1f256cd1d99aad2f0c3"},
+    {file = "dwave_cloud_client-0.13.6.tar.gz", hash = "sha256:7195447115abad2eb3d7b6c322e49d2ba15cbb21d8c530698f80acfacbafa47c"},
 ]
 
 [package.dependencies]
@@ -1774,7 +1774,8 @@ authlib = ">=1.2,<2"
 click = ">=7.0,<9"
 diskcache = ">=5.2.1,<6"
 homebase = ">=1.0,<2"
-importlib-metadata = ">=5.0.0"
+importlib_metadata = ">=5.0.0"
+orjson = ">=3.10"
 packaging = ">=19"
 plucky = ">=0.4.3,<0.5"
 pydantic = ">=2,<3"
@@ -1786,50 +1787,74 @@ werkzeug = ">=2.2,<4"
 
 [package.extras]
 bqm = ["dimod (>=0.10.5,!=0.11.4,<0.13)", "numpy (>=1.17.3)"]
-bqm-legacy = ["dimod (>=0.9.0,<0.10.0)", "numpy (>=1.16,<1.24)"]
 cqm = ["dimod (>=0.10.5,!=0.11.4,<0.13)", "numpy (>=1.17.3)"]
 dqm = ["dimod (>=0.10.5,!=0.11.4,<0.13)", "numpy (>=1.17.3)"]
-dqm-legacy = ["dimod (>=0.9.7,<0.10)", "numpy (>=1.16,<1.24)"]
-mocks = ["dwave-networkx (>=0.8.9)"]
-test = ["coverage", "mock", "numpy", "requests-mock"]
+mocks = ["dwave-networkx (>=0.8.10)"]
+nlm = ["dwave-optimization (>=0.1.0,<0.5)", "numpy (>=1.20.0)"]
+test = ["coverage", "mock", "numpy", "requests_mock"]
 
 [[package]]
-name = "dwave-greedy"
-version = "0.3.0"
-description = "Ocean-compatible collection of greedy/brute-force solvers/samplers"
+name = "dwave-gate"
+version = "0.3.4"
+description = "Gate model library."
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.9"
 groups = ["main", "quantum"]
 files = [
-    {file = "dwave-greedy-0.3.0.tar.gz", hash = "sha256:806c02d6c3f260ef5bf063d4932f43dfb52a0ea00f9db0b0d34d9b15691a011a"},
-    {file = "dwave_greedy-0.3.0-py3-none-any.whl", hash = "sha256:34c2d24bf6d4f4d3cee532dbc85c79b7faa4845a7bd51435fc4114d077095f6f"},
+    {file = "dwave_gate-0.3.4-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:283d68df142678af8137c8a78d9f2894f757b7f0eec67e3aac4db6afdc759021"},
+    {file = "dwave_gate-0.3.4-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:62185317a83965d97eaa2bfdc67d33bb72ce7bfedaf2a21361c51e1504ff3fce"},
+    {file = "dwave_gate-0.3.4-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e6510498f5d91c8d302198ca3f523dd97f81c611f99daac78a4cf3dbd6924b7f"},
+    {file = "dwave_gate-0.3.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:609b74dbff63d630c9803c310dfc8c1f46adb531aae42a8ba6f48122c11b7713"},
+    {file = "dwave_gate-0.3.4-cp310-cp310-win_amd64.whl", hash = "sha256:79f34a0d1f02a6d416d1dcd83c8761dc8be43d0d7c7063fd6c8bd37c0bef8af8"},
+    {file = "dwave_gate-0.3.4-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:ec62338b7ef672d75783b5f28003f7332b514a5d5f170eaf93a87e7d15e10709"},
+    {file = "dwave_gate-0.3.4-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:331d258161adfe773963e1c86a279c3fd4d2ef9f588a7bf6e4db040cf065611b"},
+    {file = "dwave_gate-0.3.4-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:cbe01c6b42ee8a8e8236cc7f230289562efb2bd14778fc98030fcfdbab993021"},
+    {file = "dwave_gate-0.3.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:acab90e3c6671f1ed85b7fafb90ade4f68a1da19f8a01af8a374a025c5db9880"},
+    {file = "dwave_gate-0.3.4-cp311-cp311-win_amd64.whl", hash = "sha256:b34c9ae752b65ebf73292f91277f04f4f17fd3522b5df13d8edd74ef751f51d3"},
+    {file = "dwave_gate-0.3.4-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:a08d90dfc089ec4a5843764b27c0f953178d3971ba067f661a88f4d8243184d4"},
+    {file = "dwave_gate-0.3.4-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:e46e0fe19085658c178922e2427ea1048828a27988ab288a23c009ef0886ad87"},
+    {file = "dwave_gate-0.3.4-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:9baadcee83d53154bb9a33e7c023dfc842825361e9c0bf64b3b745e51f5de7bc"},
+    {file = "dwave_gate-0.3.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:61a32a028075a1cefe1afcd581f7ce6259cf2b05ebd1bc0cd8a8182c45111c41"},
+    {file = "dwave_gate-0.3.4-cp312-cp312-win_amd64.whl", hash = "sha256:fb2acb33b81c48c3268d51c6df46a4a0499d032f0e88a7b519e7bc55078eca87"},
+    {file = "dwave_gate-0.3.4-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:0d2db06582449b90823c3872b15b839bd118acb2505bbb409631e786ff271d67"},
+    {file = "dwave_gate-0.3.4-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:67db02edb3e7b742ec8e18787a11533ffd910e53a2aed850cd6dca04d25b44d2"},
+    {file = "dwave_gate-0.3.4-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:6ef8255ec286cf02046fa833013063eab7a468d9fa54bcfb37a78b23bab2f657"},
+    {file = "dwave_gate-0.3.4-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:5094fc948713ff05fc11dc0d7af794ed1958cb5d16f22aac6d48801818462bb4"},
+    {file = "dwave_gate-0.3.4-cp313-cp313-win_amd64.whl", hash = "sha256:8a62514b3e705759cce4b8f44f4b4fb1e13cd4e36a26282a467873324b641a11"},
+    {file = "dwave_gate-0.3.4-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:4adecc66ad336fd8ea572716c55c142da83b6dcf016ba7b508db1f29ed6fc1aa"},
+    {file = "dwave_gate-0.3.4-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:b5581cc14ab010b06b72d20433f8458c66314ac6c9d603d297b908bcd92946bc"},
+    {file = "dwave_gate-0.3.4-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:cedbaeb49f06aae6b1ab5bd871c03a7e0c5a7bd3cabfc305af6771cba403651d"},
+    {file = "dwave_gate-0.3.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f8fcf491ae931ce0ca978df9ccf6756537c816f35d679d1b3fa85b5252ed0976"},
+    {file = "dwave_gate-0.3.4-cp39-cp39-win_amd64.whl", hash = "sha256:508b171794c4c1288db60168ea931766fda141cd19f62191f3b2e99a8017b696"},
+    {file = "dwave_gate-0.3.4.tar.gz", hash = "sha256:17e193da453724c427448e3d7beeb8260c804404ac0ab43ed2d0abcbb0d55b5e"},
 ]
 
 [package.dependencies]
-dwave-samplers = ">=1.0.0"
+numpy = ">=1.24.4"
+
+[package.extras]
+qir = ["pyqir (>=0.8.0,<0.10)"]
 
 [[package]]
 name = "dwave-hybrid"
-version = "0.6.11"
+version = "0.6.14"
 description = "Hybrid Asynchronous Decomposition Solver Framework"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["main", "quantum"]
 files = [
-    {file = "dwave-hybrid-0.6.11.tar.gz", hash = "sha256:201230a937f92bd820311bdd6dd6ce8b68ff4e35392fe88e31aa8e41849c4eb9"},
-    {file = "dwave_hybrid-0.6.11-py3-none-any.whl", hash = "sha256:2c84c0e999bb6332f2868e28f324aeb6ac0f6faa6741334499b4e45542774a2f"},
+    {file = "dwave_hybrid-0.6.14-py3-none-any.whl", hash = "sha256:db297f0448d71e587f961da904364dee4a84d3e18c2e529393cc65d87bffbb03"},
+    {file = "dwave_hybrid-0.6.14.tar.gz", hash = "sha256:1f75ac057075c3c7aefd931b03ff5e713c14ccffc17676d5a095424a45c48ad7"},
 ]
 
 [package.dependencies]
 click = ">5"
-dimod = ">=0.10.13,<0.13"
+dimod = ">=0.12.2,<0.13"
 dwave-cloud-client = ">=0.10.6"
-dwave-greedy = ">=0.1.0"
-dwave-neal = ">=0.5.4"
 dwave-networkx = ">=0.8.8"
-dwave-preprocessing = "*"
-dwave-system = ">=1.13.0"
-dwave-tabu = ">=0.2.0"
+dwave-preprocessing = ">=0.5.4"
+dwave-samplers = ">=1.0.0"
+dwave-system = ">=1.16.0"
 minorminer = ">=0.1.7"
 networkx = "*"
 numpy = ">=1.19.1"
@@ -1840,52 +1865,37 @@ test = ["coverage"]
 
 [[package]]
 name = "dwave-inspector"
-version = "0.5.0"
+version = "0.5.4"
 description = "D-Wave Problem Inspector tool"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["main", "quantum"]
 files = [
-    {file = "dwave-inspector-0.5.0.tar.gz", hash = "sha256:083f01583acf8ee8f1fe3fcca0dd227c3d0cb3de1359119e439e39ee55907366"},
-    {file = "dwave_inspector-0.5.0-py3-none-any.whl", hash = "sha256:050a198f76a324e4779dce92455e54cd30b0115a0a274d9beae5f1e360809b9c"},
+    {file = "dwave_inspector-0.5.4-py3-none-any.whl", hash = "sha256:da4e76ec2525d78e75302c1cf5ef7100ec529a0bd88143503cba6b4526354772"},
+    {file = "dwave_inspector-0.5.4.tar.gz", hash = "sha256:605b92363fc8930bf5c3e5637e98e91e45f46274a856cbac74670102694794fb"},
 ]
 
 [package.dependencies]
 dimod = ">=0.10.0"
-dwave-cloud-client = ">=0.11.0,<0.12.0"
+dwave-cloud-client = ">=0.12.0,<0.14.0"
 dwave-system = ">=1.3.0"
 Flask = ">=2.2,<4"
 numpy = "*"
 orjson = ">=3.10.0"
 
 [package.extras]
-test = ["coverage", "vcrpy"]
-
-[[package]]
-name = "dwave-neal"
-version = "0.6.0"
-description = "General Ising graph simulated annealing solver"
-optional = false
-python-versions = ">=3.7"
-groups = ["main", "quantum"]
-files = [
-    {file = "dwave-neal-0.6.0.tar.gz", hash = "sha256:8ce51fee3339195df1ab69920fdb5afc496b5fd945e487fad3547c983d90c564"},
-    {file = "dwave_neal-0.6.0-py3-none-any.whl", hash = "sha256:8b7d89f0c52de6ac80e0f580ec272f6409b1cf9edb12250d22429425a13bd935"},
-]
-
-[package.dependencies]
-dwave-samplers = ">=1.0.0,<2.0.0"
+test = ["coverage (>=7.0.0)", "vcrpy"]
 
 [[package]]
 name = "dwave-networkx"
-version = "0.8.14"
-description = "A NetworkX extension providing graphs and algorithms relevent to working with the D-Wave System"
+version = "0.8.18"
+description = "A NetworkX extension providing graphs and algorithms relevant to working with the D-Wave System"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.9"
 groups = ["main", "quantum"]
 files = [
-    {file = "dwave_networkx-0.8.14-py3-none-any.whl", hash = "sha256:a1b652c2d512bf6f8dfce4634000e7387d6f8fd9dd7716102b1cdbc0412cdb7d"},
-    {file = "dwave_networkx-0.8.14.tar.gz", hash = "sha256:03f255192cbb0e3472fdf3cd70b8b6f58d4d71d4b0aeb04746ee4ece9a771318"},
+    {file = "dwave_networkx-0.8.18-py3-none-any.whl", hash = "sha256:3951be45f8da4b3732c62ab4edd7838e7291f0bd5a77e64dee99abd1ef431cbb"},
+    {file = "dwave_networkx-0.8.18.tar.gz", hash = "sha256:b9d00e3f9dcc642572e676ffbca15b468204411724711cee606af285c30e6eca"},
 ]
 
 [package.dependencies]
@@ -1895,167 +1905,185 @@ numpy = ">=1.17.3"
 
 [[package]]
 name = "dwave-ocean-sdk"
-version = "6.10.0"
+version = "8.4.0"
 description = "Software development kit for open source D-Wave tools"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["main", "quantum"]
 files = [
-    {file = "dwave_ocean_sdk-6.10.0-py3-none-any.whl", hash = "sha256:5595b12cd05f452265da7c331f1a03e0eeef499d3dd948072d65fbd94d10749b"},
-    {file = "dwave_ocean_sdk-6.10.0.tar.gz", hash = "sha256:2aa1f722df0ff99114fb728a215f229b291b98adac18fbd98c0accf5a66b32e2"},
+    {file = "dwave_ocean_sdk-8.4.0-py3-none-any.whl", hash = "sha256:f87dec9451b5a0b2b6395be9c1a6ca8f6b0d2d4e699c1ad7be66dc061631eb00"},
+    {file = "dwave_ocean_sdk-8.4.0.tar.gz", hash = "sha256:24642a1b70fd49b85d9d6dafb65a5dc6920f11c84f654da6bd4524cfb2219180"},
 ]
 
 [package.dependencies]
-dimod = "0.12.14"
-dwave-cloud-client = "0.11.4"
-dwave-greedy = "0.3.0"
-dwave-hybrid = "0.6.11"
-dwave-inspector = "0.5.0"
-dwave-neal = "0.6.0"
-dwave-networkx = "0.8.14"
-dwave-preprocessing = "0.6.5"
-dwave-samplers = "1.2.0"
-dwave-system = "1.24.0"
-dwave-tabu = "0.5.0"
-dwavebinarycsp = "0.3.0"
-minorminer = "0.2.13"
-penaltymodel = "1.1.0"
+dimod = "0.12.20"
+dwave-cloud-client = "0.13.6"
+dwave-gate = "0.3.4"
+dwave-hybrid = "0.6.14"
+dwave-inspector = "0.5.4"
+dwave-networkx = "0.8.18"
+dwave-optimization = "0.6.2"
+dwave-preprocessing = "0.6.9"
+dwave-samplers = "1.6.0"
+dwave-system = "1.32.0"
+dwavebinarycsp = "0.3.1"
+minorminer = "0.2.19"
+penaltymodel = "1.2.0"
 
-[package.extras]
-all = ["dwave-gate (==0.3.1)"]
+[[package]]
+name = "dwave-optimization"
+version = "0.6.2"
+description = "Enables the formulation of nonlinear models for industrial optimization problems."
+optional = false
+python-versions = ">=3.9"
+groups = ["main", "quantum"]
+files = [
+    {file = "dwave_optimization-0.6.2-cp310-cp310-macosx_10_13_x86_64.whl", hash = "sha256:3aa282183976767c062517cd9cdb35c4551e14a769629cf288fd0d1f04df3131"},
+    {file = "dwave_optimization-0.6.2-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:5158d73e95f733da632b5e114f731d5c842fe5500beec0c5789256e43182be4c"},
+    {file = "dwave_optimization-0.6.2-cp310-cp310-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:4151813c7beae981510449ab658284e4a62ede2230ac402e2d2a65918d7b048c"},
+    {file = "dwave_optimization-0.6.2-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:7498529a3f6c0872351d2a8662f111a7df8c02eb740abc64e532499fa7a2ae76"},
+    {file = "dwave_optimization-0.6.2-cp310-cp310-win_amd64.whl", hash = "sha256:bf0bfdac565ec90368759b64169d68a75c6997998993b0867835494419039d27"},
+    {file = "dwave_optimization-0.6.2-cp311-cp311-macosx_10_13_x86_64.whl", hash = "sha256:7dc0b1d8bed238efc3b97b802e42602d1ab5582b2652e13aede14c4b0850f2d2"},
+    {file = "dwave_optimization-0.6.2-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:6415a531160dec804c32af5bcf8c8e4291d1a24a1ac0e936d5f148177140eb3f"},
+    {file = "dwave_optimization-0.6.2-cp311-cp311-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:477dd7c2620e3633942dd10726163332c2d0726b3ca83ad8df01bf7147ad64e2"},
+    {file = "dwave_optimization-0.6.2-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:a49864cab993ef396ecfea4edd014068cf6cef0ebbcb41dff5fb148bb46ba62e"},
+    {file = "dwave_optimization-0.6.2-cp311-cp311-win_amd64.whl", hash = "sha256:7d7aac4ca76b51279ee2ff6b68064d350b77569ef4939a7f7e16ee39a2d74457"},
+    {file = "dwave_optimization-0.6.2-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:6393ffaf4a9de5c0434b0498a5b766648346c5a779560eea230e447c2f3ebe8b"},
+    {file = "dwave_optimization-0.6.2-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:225791232cd49a8821885f343ad86eda517a569cf7729ac79f51f16c3eb59953"},
+    {file = "dwave_optimization-0.6.2-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:88a98ce1ea90316b618da3d368db3695e7ea197aa92269917bb124d66fff804e"},
+    {file = "dwave_optimization-0.6.2-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:8e85f54f680ddaaf7fd22639647e37b0efbe7b2fe41425b8f58401073e72404d"},
+    {file = "dwave_optimization-0.6.2-cp312-cp312-win_amd64.whl", hash = "sha256:0b856abe5a4f4327de69fa371eb0f6a1f4a62a6978192d48b64d2ef189df6822"},
+    {file = "dwave_optimization-0.6.2-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:4dea52b550a1e0067a5da6015b886a944efd54a8d42f9c18626dc8c961446a92"},
+    {file = "dwave_optimization-0.6.2-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:85c250f9bc3eda64c11432c71dfef22b77e9f0ed28e5146f28b1cafef15de20a"},
+    {file = "dwave_optimization-0.6.2-cp313-cp313-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:2f7b8bb07decc20bc32fc5114e2fa3638e50074cb828cab2d72b1dff867bac82"},
+    {file = "dwave_optimization-0.6.2-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:98fcda687d6706b72aec65525a9cc9f4b4b89fa89ff19136714d04784fa91f2d"},
+    {file = "dwave_optimization-0.6.2-cp313-cp313-win_amd64.whl", hash = "sha256:e5ee66960a08740ceb108a6851674bfcd0e4569c6a865abca3dc5bb472b62909"},
+    {file = "dwave_optimization-0.6.2-cp39-cp39-macosx_10_13_x86_64.whl", hash = "sha256:562a9d988f719e151972acf42ac26ea799c7787ea32dbcc5b56e6846f06c5c0c"},
+    {file = "dwave_optimization-0.6.2-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:1d65b59b5e4f9444a16f1b9b6f015567454f5f0cd506c70d52a79c1582b22138"},
+    {file = "dwave_optimization-0.6.2-cp39-cp39-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:81ff324ac4750316426ec6cdb0ef4a267743ec2a4b60dc83c99043de11f8b7d2"},
+    {file = "dwave_optimization-0.6.2-cp39-cp39-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:b879cd341ea7e467941c8b1dbed7472de2ecb94351ce7742d3756ec18c067e81"},
+    {file = "dwave_optimization-0.6.2-cp39-cp39-win_amd64.whl", hash = "sha256:629ac9a3f1c2120e3f62f61b572751742d2eb7422decee1552c8ef6c563e1ddc"},
+    {file = "dwave_optimization-0.6.2.tar.gz", hash = "sha256:d1e42bbf2ee9b47d0d4775388adcee981ea6d03242e4d9f4832ef5e84504c469"},
+]
+
+[package.dependencies]
+numpy = ">=1.20.0"
 
 [[package]]
 name = "dwave-preprocessing"
-version = "0.6.5"
+version = "0.6.9"
 description = "An API for preprocessing tools"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["main", "quantum"]
 files = [
-    {file = "dwave-preprocessing-0.6.5.tar.gz", hash = "sha256:dc18e544a8b743e1bbc9e776129c0709247d071e7ec44229df48d92bb993a1be"},
-    {file = "dwave_preprocessing-0.6.5-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:86fb8c39c8a8f025683e838b1f23608cd3ab4e3ca7f929f42b3b99036272ebd4"},
-    {file = "dwave_preprocessing-0.6.5-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:055334551e796096cd43f23bbfe5aadccccba3fcb44451cc759fa1fbeb057a29"},
-    {file = "dwave_preprocessing-0.6.5-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:3c4e1cdbe9db2dbb2a96c2fcd75eb817c318896e9a30f8772f4406d46e4b65c0"},
-    {file = "dwave_preprocessing-0.6.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:89767040c9d22f60f43bae0f4e612b77d94d8fb6b93bb1fe67c0839fe381f4a2"},
-    {file = "dwave_preprocessing-0.6.5-cp310-cp310-win_amd64.whl", hash = "sha256:bf24f03e18ab45ae234fbcbc8100f0af4f032493540d33288245c9660babe19d"},
-    {file = "dwave_preprocessing-0.6.5-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:d5fe56140badfbcf015e2d5622b1aa5da98100f63622af4dc28ce5a26b957fde"},
-    {file = "dwave_preprocessing-0.6.5-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:c4e0112c717a188d4f11a449570829385c20983a22b53f1fbe47c89d15976f15"},
-    {file = "dwave_preprocessing-0.6.5-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:538b4b9218091f27d8fa4a217c980faa3f452d7aff3ef8b34ba615c53b315799"},
-    {file = "dwave_preprocessing-0.6.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:93468814feced1a0321a41f892905621d382bba7414c8e6f0d043a021492d80b"},
-    {file = "dwave_preprocessing-0.6.5-cp311-cp311-win_amd64.whl", hash = "sha256:79b1993b199562d9696d25d2d26922a55e50c1be0bcf1d9a6cdb43c5c4f250ee"},
-    {file = "dwave_preprocessing-0.6.5-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:a1aeecbf7e660587a9b9cf8ddf138f41ef13d497686c3d22feedc4f3e8abc9dc"},
-    {file = "dwave_preprocessing-0.6.5-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:ef657741bb81c0dfa87f378af311f62cfdc9ffe163792effc688cab81a053521"},
-    {file = "dwave_preprocessing-0.6.5-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:135884e6adda5f3e1dc36285aaf4cceb12e23406f6842dce7cb5de8cb0ca5787"},
-    {file = "dwave_preprocessing-0.6.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:7590c3748ac55df6522f994f546ec8799485a6ac5759ccb65996584557507f58"},
-    {file = "dwave_preprocessing-0.6.5-cp312-cp312-win_amd64.whl", hash = "sha256:9f9284fd37bc245bbdf4d5fafb26e9855d8c6283366de09f8850ba4d0039f27d"},
-    {file = "dwave_preprocessing-0.6.5-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:dfcf10b16c2785767ba2f8730886844c39d4fef2decc5516811651d6a68038da"},
-    {file = "dwave_preprocessing-0.6.5-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:8f87491e822ef7cc4d6a115a73d9b54c14653de927d5ed33a8d24cd764e30837"},
-    {file = "dwave_preprocessing-0.6.5-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:9e79535c4934cec255b7291de4a6c17df5f601bb538af13473492ed618c663dd"},
-    {file = "dwave_preprocessing-0.6.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:76f3fe8f04701b6d98df5c53e6c33a58100eb0e41b8ccbbb35e9c4f4744e1d28"},
-    {file = "dwave_preprocessing-0.6.5-cp38-cp38-win_amd64.whl", hash = "sha256:11ba4466047b6a9ba2882f099ba8d252da95b70405b326bbce237a82e537487f"},
-    {file = "dwave_preprocessing-0.6.5-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:c3a96c3ae105dba085fd8005e94f6ee906fe91fc96c9dee7b4802f3206412340"},
-    {file = "dwave_preprocessing-0.6.5-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:54beceb713ce8d5362ce12dcec6a86c021b5632efce024244a74eceaa04a323f"},
-    {file = "dwave_preprocessing-0.6.5-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:5c482594bd33e6b610e2b2ceb6ad8e3185c8df90655a209f753ba2a0cdd39546"},
-    {file = "dwave_preprocessing-0.6.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ed6a8ec1590f57343af46c21f6665f9741998db476aa59f8fe25c0195c3037a8"},
-    {file = "dwave_preprocessing-0.6.5-cp39-cp39-win_amd64.whl", hash = "sha256:5da31198b7c56f78dbcec09f92090248e06604071e40e8bb66bdf1a1b9dba0f8"},
+    {file = "dwave-preprocessing-0.6.9.tar.gz", hash = "sha256:52844f5dcbf31558fb6f7312b67e51a5530236079f7acca6cc5a25fd5139b463"},
+    {file = "dwave_preprocessing-0.6.9-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:5f4531b35677c8680be0fe8648a7d5282cdb20317745fd1adb587db88fa0bc4d"},
+    {file = "dwave_preprocessing-0.6.9-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:8f4fbeab39c9f58a0bdd44a5f4a2572520732e60cdc4facc7975f9093b7468d6"},
+    {file = "dwave_preprocessing-0.6.9-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:58e0eee273d22f41d8cc976137b6a2fea1c9efb9a23d9ac037891962bf2ac5f7"},
+    {file = "dwave_preprocessing-0.6.9-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:38b45c56af7d40c2a5aa1db5d897c2ba2a92d91157cda23d8d749d4cc2b69572"},
+    {file = "dwave_preprocessing-0.6.9-cp310-cp310-win_amd64.whl", hash = "sha256:9d0ab50c30f68d26403eb98b004a94bb9ffa10b15f3054db98f7f578eb95b350"},
+    {file = "dwave_preprocessing-0.6.9-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:f35a470afe2f1dd6d7c0088a578fd313ab9d0bb133fb142276dbd04112f09e37"},
+    {file = "dwave_preprocessing-0.6.9-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:43ee22961568179074fb44bd6c433ffe9283faadf248608b565b8c951d4e8289"},
+    {file = "dwave_preprocessing-0.6.9-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:23244aef8d2f847d8dceb9d46358bf898faf8bd7a58c70f5e0746f2a93c4377d"},
+    {file = "dwave_preprocessing-0.6.9-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:203f36050245ff9a7d96900c698391265cb771787e4a0584aa069c5b921067f6"},
+    {file = "dwave_preprocessing-0.6.9-cp311-cp311-win_amd64.whl", hash = "sha256:9d44c870db37bb3088b554be90df65570ff0fab3def69c948312dd45265e1c4a"},
+    {file = "dwave_preprocessing-0.6.9-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:39fa3c399f1c9c2c1b17daba6f7450b35f5cc1cbdf1b48663dcd0efd1880e9bc"},
+    {file = "dwave_preprocessing-0.6.9-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:f60750016cd8b5dbb86ca7a2b0e3a93bf4066117225ebd8840cb486f25886528"},
+    {file = "dwave_preprocessing-0.6.9-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0e309fa365fc9c9c0b19201ab748e1e870caac1316c4864d8644700d6434a901"},
+    {file = "dwave_preprocessing-0.6.9-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:12a68678cef76f1437885919aea252bc9a19bb978a90b9b2625e80a50d1c0d77"},
+    {file = "dwave_preprocessing-0.6.9-cp312-cp312-win_amd64.whl", hash = "sha256:4905936fdb8927e789627686165a885333edb9ba9698d889c4b4af4fd1de22ef"},
+    {file = "dwave_preprocessing-0.6.9-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:3d8c558207cb35535295e79d70f729d540322134dd3a4840eace2b0d5869c728"},
+    {file = "dwave_preprocessing-0.6.9-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:38b75e338464b7f78410f56e799600fcd0e043d28baa09b615c3d537430e9027"},
+    {file = "dwave_preprocessing-0.6.9-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:bc1e58c4c31ce22f06e715be43e1cfafa6f3bcfe79f01e3bfc8012bad2150fe3"},
+    {file = "dwave_preprocessing-0.6.9-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:06ff835c7e5226be3da038074debacc31b6fbd1c63049118138269625da9c0ce"},
+    {file = "dwave_preprocessing-0.6.9-cp313-cp313-win_amd64.whl", hash = "sha256:9a5a618d686f109135d3cecd8d782eb7f929ad2b74ed74351658433ae9c1ea99"},
+    {file = "dwave_preprocessing-0.6.9-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:b9bcdfb9ff4677f65d04527d68b7e1a2a43c2306b2ec7ce00d6c0449b3d28df1"},
+    {file = "dwave_preprocessing-0.6.9-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:49e37ff5e4f7dacfb25d2609cb08cf7a00e8743d31ea57f5f4deca31825764bd"},
+    {file = "dwave_preprocessing-0.6.9-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:8ed04776e250a29041eb45318eeb80bb52761f61b0df82152ec51827bf8f08be"},
+    {file = "dwave_preprocessing-0.6.9-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:64ef75da77f478eb455614e721a5fd667414af0ec80447d2a5b5b14330bb14f3"},
+    {file = "dwave_preprocessing-0.6.9-cp39-cp39-win_amd64.whl", hash = "sha256:064f7f2e615090a132639797f278a60e3e7bad439e15182aebd149da2a7841cb"},
 ]
 
 [package.dependencies]
-dimod = ">=0.12.6,<0.13.0"
-numpy = ">=1.17.3,<2.0.0"
+dimod = ">=0.12.20,<0.13.0"
+numpy = ">=1.17.3,<3.0.0"
 
 [[package]]
 name = "dwave-samplers"
-version = "1.2.0"
+version = "1.6.0"
 description = "Ocean-compatible collection of solvers/samplers"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["main", "quantum"]
 files = [
-    {file = "dwave-samplers-1.2.0.tar.gz", hash = "sha256:b85e3f0486ddc03bfc936791707cf40e07df1a6eb68843d7329e8539fb41b077"},
-    {file = "dwave_samplers-1.2.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:601393f25dd32d11b7f2f12a833b86f16a1500771c6a191c0b2db638d6ecca79"},
-    {file = "dwave_samplers-1.2.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:f864feac99e233cb6385b2e1f9ab492825e1ba61e1e2bd75c4dd0d3b5f011c44"},
-    {file = "dwave_samplers-1.2.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:65b2c219e3f3f9cfef53979ebab6fcc3179c9f4c23fb90e75ffa68180af6e7b2"},
-    {file = "dwave_samplers-1.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f64a967b43fe312e5e07d09c76920d8623e706bc96b5330af51eb5a5d65cf0b7"},
-    {file = "dwave_samplers-1.2.0-cp310-cp310-win_amd64.whl", hash = "sha256:5087c727176126097923c7281a93c607162b88aba1a0d73c4075963ca1cf5354"},
-    {file = "dwave_samplers-1.2.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:c473ec85a51c5f26bec9d5b4b61b29f098853b7ee30346c95b73a70bc5777b36"},
-    {file = "dwave_samplers-1.2.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:c72724c5e6b2c44196213c86c7378d643f6daf91aa386ed6c4cc57c006d0d5d5"},
-    {file = "dwave_samplers-1.2.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:04197944e411fb4f80a8d44a3b3fb5322f60e2d2c41eacef94b618278ea5f9f7"},
-    {file = "dwave_samplers-1.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9341db5569e506f4f030a376da2c14803d626e499b62efbbd7eedeccb36e8d68"},
-    {file = "dwave_samplers-1.2.0-cp311-cp311-win_amd64.whl", hash = "sha256:d50a2c7dc4675051159298350cb1382ba71896e75bcb9595df90a862912da32c"},
-    {file = "dwave_samplers-1.2.0-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:c2ce36e611960d01981eb584c6c6b95defa964f94874d295aab2ff337b6a20d7"},
-    {file = "dwave_samplers-1.2.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:2abe4bc2ea906b43b66be12558a5d787c3b727a96547ced66f9e2b30a922fcd3"},
-    {file = "dwave_samplers-1.2.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:753e50fcdbdd9947441443e94932f3f060cda72ef3a94a8f73abffe84132480c"},
-    {file = "dwave_samplers-1.2.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0deb9c06166bc8a170382fb467a3c158063dc8b792770632862a6a8544dca014"},
-    {file = "dwave_samplers-1.2.0-cp312-cp312-win_amd64.whl", hash = "sha256:5d74ca3f54617bdd78472d14b3fd8a8210dd239ebb3a402ea99da30299087ebb"},
-    {file = "dwave_samplers-1.2.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:38bd8483be1ab728d176daae84973e4f102b56584206d0b8d7f1a1e9958da4ce"},
-    {file = "dwave_samplers-1.2.0-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:c496edab0a5137ee95538bafa53a6944ab4e07135dc751ca8422b08b0ef73465"},
-    {file = "dwave_samplers-1.2.0-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:1b287f94198b0ee9ecf47a99b200be800184f62cef47fa2400b58576f21b3e2f"},
-    {file = "dwave_samplers-1.2.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:5724474ea62cb0d8dad38f2214e65b41aa29841b35e6db1f40d2dd5243437907"},
-    {file = "dwave_samplers-1.2.0-cp38-cp38-win_amd64.whl", hash = "sha256:35529d53bc0525e4ab7ed7efe024cef08df82a75fc05b193b1934f5e35020b8d"},
-    {file = "dwave_samplers-1.2.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:285419efe385f454db7cc70495ab146040412084664af064eb349d5d9c27047f"},
-    {file = "dwave_samplers-1.2.0-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:c57eca619bfc945fd90396dc0632a6c4e4a0e1b9c8a311a03d2502aad5d8a1ee"},
-    {file = "dwave_samplers-1.2.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:33d3dd91fe35b78b5ebdf7a5b157aa7134835c890697dc6c76125a6cbdb7826d"},
-    {file = "dwave_samplers-1.2.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:35380201664aa29e23a18befca51be22974f9edb003e77d964e18de74576d561"},
-    {file = "dwave_samplers-1.2.0-cp39-cp39-win_amd64.whl", hash = "sha256:9437e4e4c9a63e12dfcfd0dc0f9563da05704dd80a0e0430b6cd93796d455c30"},
+    {file = "dwave_samplers-1.6.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:6c1503301ced12dd1aedb0b647dbfc7d13c7a26a7ad0b8a8d643c459fbbfbd51"},
+    {file = "dwave_samplers-1.6.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:32791ebaafc1b23158f0855a52e2c1009e8a6b799f12863b42c2680aeaf39b4c"},
+    {file = "dwave_samplers-1.6.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:87b2a7f620a6893e085f85c8a7831392d0783fc213c86267bd1905a9a81fcd03"},
+    {file = "dwave_samplers-1.6.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:c0b61dc733008b928441578291f42410e002a242d541b70b77c6832d60a8a9b1"},
+    {file = "dwave_samplers-1.6.0-cp310-cp310-win_amd64.whl", hash = "sha256:cded687a4ab617fc0dd69a30c19c30d2cc12f0a2dc0f91c56d43fad8e4b06547"},
+    {file = "dwave_samplers-1.6.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:e4a399a8ca87483b73fdae3998c27ca3a56161a3cc7ac0341897fbb0be4cb053"},
+    {file = "dwave_samplers-1.6.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:bff3fcfb223f071123203f40731dd7b3c595f518e737ccf2e3c7c0495817360f"},
+    {file = "dwave_samplers-1.6.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:44934aafb71b483f9c90a30d72805fe17c5c1c357ddd174ac4d1494f31487737"},
+    {file = "dwave_samplers-1.6.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:48ed4faea339f254ec93a55e77ddb6034ed6886fb031b09746a9b73f7642ad3c"},
+    {file = "dwave_samplers-1.6.0-cp311-cp311-win_amd64.whl", hash = "sha256:7623eb63e4d7ea481930d9eb101552bd20d0a9044b0dace66da3bcf4fdd592a4"},
+    {file = "dwave_samplers-1.6.0-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:0aee3cbb24348a5a0fed7612fc33fb1e8dc442e381a8b7298c06f9d3de9dcaaf"},
+    {file = "dwave_samplers-1.6.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:bf4c0e7313a5a81d9e93daf22f799cf3cd3bf556c7e3332c67c4b68ff5502ece"},
+    {file = "dwave_samplers-1.6.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b28a5e01b32e07e47a4b0979477ef95b767405b28a54d3f9a086e8778a565e89"},
+    {file = "dwave_samplers-1.6.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:dfa2c5de53821d0231ba034a7576e71c3d4abd8fe72bf0430d0571e90e6fc34e"},
+    {file = "dwave_samplers-1.6.0-cp312-cp312-win_amd64.whl", hash = "sha256:442d6357f2c5add305e276ad72d5f47cd85909291a18bf94c8b3ca5ab2ad2f2f"},
+    {file = "dwave_samplers-1.6.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:132bb8f559a4c4aa0044ce0d6d42ce236debdc28bf4c9c29fd03bfbb7d9858e6"},
+    {file = "dwave_samplers-1.6.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:801d3a65b43971f11987e74b9f0d8c02d91a74a4de31c9ab4b5ec4021ddd2cb3"},
+    {file = "dwave_samplers-1.6.0-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0438905da3e4d8bb2bb085b054c87b7b79b105bcd2d7f5734c6a761bd1e288de"},
+    {file = "dwave_samplers-1.6.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8f3e8c9400463bbbb2d6a36f87f61f48ba62e5dd5c8b99832f584e6919820b80"},
+    {file = "dwave_samplers-1.6.0-cp313-cp313-win_amd64.whl", hash = "sha256:73b2fdf42e5a02091cb9ea8bcdcbc546cbaabc75c62fbd9e6db4bc0101b02a23"},
+    {file = "dwave_samplers-1.6.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:571f30e60ed96a92d52bc8ba7b17ba934fd6334c506774c153eb2034878f9806"},
+    {file = "dwave_samplers-1.6.0-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:21fbb85b253dc69180fd2326eccc778a7872767563abb923d23300e318379b1b"},
+    {file = "dwave_samplers-1.6.0-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:42784427d847a3bf6a75751011e75d9d86467db50672470aceda7510fde4b6d0"},
+    {file = "dwave_samplers-1.6.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:97d959f463c6e63d8dd154ab7b4efb62759a6ab9684a5330d910cb17cc0d7a27"},
+    {file = "dwave_samplers-1.6.0-cp39-cp39-win_amd64.whl", hash = "sha256:96a5ec2840f4287990e0b83329def057f18ecf6ec6805628d395fc02df16154c"},
+    {file = "dwave_samplers-1.6.0.tar.gz", hash = "sha256:79c6e8c6f8d2b5c3d825d1be1e4f7815071b1f5187513637895fbcba4096efa6"},
 ]
 
 [package.dependencies]
-dimod = ">=0.12.0,<0.13.0"
-networkx = ">=2.4.0"
-numpy = ">=1.19.0,<2.0.0"
+dimod = ">=0.12.13,<0.13.0"
+networkx = ">=3.0"
+numpy = ">=1.19.0,<3.0.0"
 
 [[package]]
 name = "dwave-system"
-version = "1.24.0"
+version = "1.32.0"
 description = "All things D-Wave System."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["main", "quantum"]
 files = [
-    {file = "dwave-system-1.24.0.tar.gz", hash = "sha256:705e71773e0535570fc29499341e881090bd7630e0d2cf8e75f18ba8f5154d4a"},
-    {file = "dwave_system-1.24.0-py3-none-any.whl", hash = "sha256:6d526150071d7ff1ec67a0e028afc5412478e67196cc48fcdbff6c477e552b5f"},
+    {file = "dwave_system-1.32.0-py3-none-any.whl", hash = "sha256:a4255c5fd953f56e095af06433bd74a748e12711d739d5f1dc60cdfef2cc875f"},
+    {file = "dwave_system-1.32.0.tar.gz", hash = "sha256:6722bbdc54f21c3466ef2beb18444bbe1bed0adcc5951e3913569019225a984e"},
 ]
 
 [package.dependencies]
-dimod = ">=0.12.7,<0.14.0"
-dwave-cloud-client = ">=0.11.0,<0.13.0"
+dimod = ">=0.12.20,<0.14.0"
+dwave-cloud-client = ">=0.12.0,<0.14.0"
 dwave-networkx = ">=0.8.10"
+dwave-optimization = ">=0.1.0,<0.8"
 dwave-preprocessing = ">=0.5.0"
 dwave-samplers = ">=1.0.0"
 homebase = ">=1.0.0,<2.0.0"
-minorminer = ">=0.2.8,<0.3.0"
+minorminer = ">=0.2.19,<0.3.0"
 numpy = ">=1.21.6"
 scipy = ">=1.7.3"
 
-[package.extras]
-drivers = ["dwave-drivers (>=0.4.0,<0.5.0)"]
-
-[[package]]
-name = "dwave-tabu"
-version = "0.5.0"
-description = "Optimized Tabu solver for QUBOs"
-optional = false
-python-versions = ">=3.7"
-groups = ["main", "quantum"]
-files = [
-    {file = "dwave-tabu-0.5.0.tar.gz", hash = "sha256:dcc73883ec491dea2656c8239dc66e9c9871e7f75852be57ea4cec6bccd48d54"},
-    {file = "dwave_tabu-0.5.0-py3-none-any.whl", hash = "sha256:ce63c4e8cee278cc3b7e82d9c6c7ff6fb84c50cb45eba12dc0e4c299c46eb784"},
-]
-
-[package.dependencies]
-dwave-samplers = ">=1.0.0"
-
 [[package]]
 name = "dwavebinarycsp"
-version = "0.3.0"
+version = "0.3.1"
 description = "Solves constraints satisfaction problems with binary quadratic model samplers"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["main", "quantum"]
 files = [
-    {file = "dwavebinarycsp-0.3.0-py3-none-any.whl", hash = "sha256:04e4ce545d5f6467885436f52b40d247a6ba8e690dbb303d669ea953b789f869"},
-    {file = "dwavebinarycsp-0.3.0.tar.gz", hash = "sha256:0e34261e85814bf92dcdacba854c31d2ed4e9f17412bf933810ad6eef3f8e4ef"},
+    {file = "dwavebinarycsp-0.3.1-py3-none-any.whl", hash = "sha256:a4a0f3d7f69fc43397467842d7056ac940ab3848ec55a8e2e412f464c864aadd"},
+    {file = "dwavebinarycsp-0.3.1.tar.gz", hash = "sha256:7af07cd269809db94dbb4bee9b9cee437e9199fb42be6f2fcf68971a6f01bdbe"},
 ]
 
 [package.dependencies]
@@ -4200,47 +4228,46 @@ files = [
 
 [[package]]
 name = "minorminer"
-version = "0.2.13"
-description = "heuristic algorithm to find graph minor embeddings"
+version = "0.2.19"
+description = "Heuristic algorithm to find graph minor embeddings."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["main", "quantum"]
 files = [
-    {file = "minorminer-0.2.13-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:ef4a42797fce612ae78688db437d62cb0480147b0c8cfb451d4d981cc50f4f6f"},
-    {file = "minorminer-0.2.13-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:a5b0f92a905691c5f3f4cf0795b082ecf36e3fa47f1aee04d7b1fc13bde64a79"},
-    {file = "minorminer-0.2.13-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:80f79551525d9f55789925558b1bae578a43ff32d6a71e2aef6b0885f33db824"},
-    {file = "minorminer-0.2.13-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:2d0b7cf68dd127d147c833f9b8ae1a03023e4cef773fc0812ad5440207816a5c"},
-    {file = "minorminer-0.2.13-cp310-cp310-win_amd64.whl", hash = "sha256:020cad49b677bf8ddff15e9c0f1deb58ea328457ee6ac4cbdd0d050dbfdc59d0"},
-    {file = "minorminer-0.2.13-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:8c383e9c856dcca5e25cbd11b6a9f059f5a4c96b5ac00b08f6bf5eec42268b20"},
-    {file = "minorminer-0.2.13-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:38cf580576b3e1be0d4c7a80fe566e2eb871d5ee063a7c507141247ccbf74137"},
-    {file = "minorminer-0.2.13-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:8935a520c529b5d8bdbfd005114a73c63788cb8c62ed84139aee6104a38bdd74"},
-    {file = "minorminer-0.2.13-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:abed93d914d5c1c9c66424c7169c02ecc4482d9c415abee9014a42a269c62b1b"},
-    {file = "minorminer-0.2.13-cp311-cp311-win_amd64.whl", hash = "sha256:49e952173fe946ade73ee77c2c0fccc93f6d6f8494907a2cc0f025fb4ee7b605"},
-    {file = "minorminer-0.2.13-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:487ff522b0ae87b326bb7366d4ec50ddc55d7d490eb91ea6d0c45e9325725855"},
-    {file = "minorminer-0.2.13-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:80127219cd8f94b652f9f1334fd1a4476f994e3fd7e524edd3f86c8c97ed0cd1"},
-    {file = "minorminer-0.2.13-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0f7fbfc3e439b5a8b24c5018faa09285b66bdccff4ae190bded684d7325a5892"},
-    {file = "minorminer-0.2.13-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:06b201e56465cd91a828a0c9eb408d77af11c047f97315d0b2f0d103c99e81a1"},
-    {file = "minorminer-0.2.13-cp312-cp312-win_amd64.whl", hash = "sha256:a1815252182ee2d1f7cfe9163ca1dfed0e83a0822e73dadc3cf57667831f8a7c"},
-    {file = "minorminer-0.2.13-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:ec40ad7a3acf4b149a714852253eaa4ee110b69c53b05cb849fa10ba859f597e"},
-    {file = "minorminer-0.2.13-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:5052aba534034bcdabdf4c9aac93ea735077b67bf7b3b90a30fce464103c52a8"},
-    {file = "minorminer-0.2.13-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:fb652b6dd38f233a1065971449b62f4b2be45767f5dc98b1467ea9df5de40252"},
-    {file = "minorminer-0.2.13-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:3b6d801126bbd5095ac863bc724d5139cd611897a7362ebc713d5fc32ea029e4"},
-    {file = "minorminer-0.2.13-cp38-cp38-win_amd64.whl", hash = "sha256:162db66fbf7759ad77ae939cab5ddeb10e8c4c1dbe228ae65616d5914befb292"},
-    {file = "minorminer-0.2.13-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:3894ff96c7fbeb7cb734349f459622a94f57b22e9d048719bb07404bcc35950d"},
-    {file = "minorminer-0.2.13-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:bdd25a79cc44f34325e74d2c9ffc6fb3bf981d81f6d1ee746d7f9707c81805ee"},
-    {file = "minorminer-0.2.13-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:16e76cc44c390ad57a5c8067f53f2c8971f8f5f9015640d817824609be7ac3c0"},
-    {file = "minorminer-0.2.13-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9be457a7d7de40d48d83be8aa55794aebf998978fadc1f296aaec94fa04c022d"},
-    {file = "minorminer-0.2.13-cp39-cp39-win_amd64.whl", hash = "sha256:dc9c86b79be7d56bf4dbb81d4e6595c6e5658f3cb1f84195322560e39c82f67b"},
-    {file = "minorminer-0.2.13.tar.gz", hash = "sha256:1c7d6d8a76d87c6c7a9a633d1262581048c04d358af002f7e129a0776628fe22"},
+    {file = "minorminer-0.2.19-cp310-cp310-macosx_10_13_x86_64.whl", hash = "sha256:b10b9d6b04bc90030ed8a8ba167f68e1123f8f684c6228e00abcc901514de941"},
+    {file = "minorminer-0.2.19-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:2124b758b79fe6a92e32150bdbb1224a1b8c6da1db01fac2c530063299f4a332"},
+    {file = "minorminer-0.2.19-cp310-cp310-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:6db373f59492256179952dfca5ba37d7109fb0802c95d18dcf93f0086e8ab84f"},
+    {file = "minorminer-0.2.19-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:aeae92870675db6645bae822eb42c8d1fc73a22b02ce73ce5576c5265a82755d"},
+    {file = "minorminer-0.2.19-cp310-cp310-win_amd64.whl", hash = "sha256:a53a5c47686eb9f9adccfc460b25333788374c7428e7b3851aaf430163807931"},
+    {file = "minorminer-0.2.19-cp311-cp311-macosx_10_13_x86_64.whl", hash = "sha256:31feafcf606a29bd83775b49b7fe5e3b217845ae3191b8b01efe5197f3a49f94"},
+    {file = "minorminer-0.2.19-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:9d35b7210f1a345659bb6e561587eef2e84abf5c953c0e8d9f38e663858cfddb"},
+    {file = "minorminer-0.2.19-cp311-cp311-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:5be5156c1240557235ee2028c432dcd0dd14c6df8b0b4dc6c71762f845830ba0"},
+    {file = "minorminer-0.2.19-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:1825d15ae14f76201e9bf9c37638f8179f56a3328961ef9c952ea48ad7407c49"},
+    {file = "minorminer-0.2.19-cp311-cp311-win_amd64.whl", hash = "sha256:78739a798ee6604dbcc6f4b11f0947679b98087623f2c27bb680e93ad8e68a22"},
+    {file = "minorminer-0.2.19-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:919cc17405cb4718ff212a0dcde4aadd538cd48f5b5f1e70d64b547bffa57a4e"},
+    {file = "minorminer-0.2.19-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:9e7c0b891989d4a8d06a305598c6d736b19ac86ed393e2c5a8b1a7939b870e67"},
+    {file = "minorminer-0.2.19-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:a3d77b06fbe97030fa2f85ed09180f03dbb28a682cdc927d2bb5fc5be4c4fe77"},
+    {file = "minorminer-0.2.19-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:d3564771e3f5164e428b8461f06568cc2207493d40c7f11d67effbbf48fa13fd"},
+    {file = "minorminer-0.2.19-cp312-cp312-win_amd64.whl", hash = "sha256:c8f1ee648168407c06646459945b742df213b16ad56a01d493c21b30b2aaffd5"},
+    {file = "minorminer-0.2.19-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:b7533e41df3c015505f00383545c4ddf81ed43eaa9ba930b4acb85ef427a3348"},
+    {file = "minorminer-0.2.19-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:e9bdc0645eb4c3845e1634749380b1c9c6fcf6ad39ec860846c6cd89ef5b8c64"},
+    {file = "minorminer-0.2.19-cp313-cp313-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:553692a89d50080513a1d8ece8bb37f7b11db8248c070a1f22a09f9ac8a56300"},
+    {file = "minorminer-0.2.19-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:763cf21571e44f626b4aee55201c28c3ba794a6ee6fa0248d2098f8c6b7f9d22"},
+    {file = "minorminer-0.2.19-cp313-cp313-win_amd64.whl", hash = "sha256:9132ab5e7ce768e01bd938f9ffa33c043961cded5699b87d0f30ee5a941e5d5c"},
+    {file = "minorminer-0.2.19-cp39-cp39-macosx_10_13_x86_64.whl", hash = "sha256:acf205da81e3cc09a474d0f2c0e521937a5454ddf170dadf5b70902ebe6020a1"},
+    {file = "minorminer-0.2.19-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:619ad95371086d4b793e94232c27c77040cea6e6babff684c9eb65406ecef60a"},
+    {file = "minorminer-0.2.19-cp39-cp39-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:33e17ae3dcd3e1bfcbeca0940a27efdba54c847c12826c6ba619bf927e0ec985"},
+    {file = "minorminer-0.2.19-cp39-cp39-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:1b88efc27f9635d217b0c11db34865853616f13c4a2b6b3890a87d80490e384d"},
+    {file = "minorminer-0.2.19-cp39-cp39-win_amd64.whl", hash = "sha256:c89b6e4b99de4b64856ab38f9189904e9994756f16edba223c433029ddb456fb"},
+    {file = "minorminer-0.2.19.tar.gz", hash = "sha256:63b657cfcb17d9b7c1d5b19171879f9a5f6a4064ee57cd992360c8a3057ae456"},
 ]
 
 [package.dependencies]
-dwave-networkx = ">=0.8.10"
+dwave-networkx = ">=0.8.13"
 fasteners = ">=0.15"
 homebase = ">=1.0.1"
 networkx = ">=2.4"
 numpy = ">=1.21.6"
-rectangle-packer = {version = ">=2.0.1", markers = "python_version >= \"3.9\""}
 scipy = ">=1.7.3"
 
 [[package]]
@@ -5576,14 +5603,14 @@ setuptools = "*"
 
 [[package]]
 name = "penaltymodel"
-version = "1.1.0"
+version = "1.2.0"
 description = "Package for creating penalty models."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["main", "quantum"]
 files = [
-    {file = "penaltymodel-1.1.0-py3-none-any.whl", hash = "sha256:f6a5f171a71d14ee1e58c8bbc70adc6575dd56b9ce284d322aa2f4b7345a42a8"},
-    {file = "penaltymodel-1.1.0.tar.gz", hash = "sha256:471592e0756a6ca04c3343cb9c2aa525aaaedc42255201826c8ecdd45f592b1e"},
+    {file = "penaltymodel-1.2.0-py3-none-any.whl", hash = "sha256:7496f3d7617d3fce1c863e06419601e9040428f08aa91d878e5e52895d93d8b6"},
+    {file = "penaltymodel-1.2.0.tar.gz", hash = "sha256:ea60299743df2cc26c80eda47388a7c1de502a29213241027e0a9c10fced9b69"},
 ]
 
 [package.dependencies]
@@ -6656,67 +6683,6 @@ crosstalk-pass = ["z3-solver (>=4.7)"]
 csp-layout-pass = ["python-constraint (>=1.4)"]
 qasm3-import = ["qiskit-qasm3-import (>=0.1.0)"]
 visualization = ["Pillow (>=4.2.1)", "matplotlib (>=3.3)", "pydot", "pylatexenc (>=1.4)", "seaborn (>=0.9.0)"]
-
-[[package]]
-name = "rectangle-packer"
-version = "2.0.4"
-description = "Pack a set of rectangles into a bounding box with minimum area"
-optional = false
-python-versions = "*"
-groups = ["main", "quantum"]
-files = [
-    {file = "rectangle_packer-2.0.4-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:34568e0fa129aede346bdadcc50928e0da1f97b44682d571840932e5f54659e5"},
-    {file = "rectangle_packer-2.0.4-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:ed26f3acc089c373a37e797419c8bac1a0c3bf1f59a0f4e6c0bf989f013dcc82"},
-    {file = "rectangle_packer-2.0.4-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:dd8271ae3faf1b9a6644ba098ccaa07ff421517bff266420ea3f81f56fa7d2a9"},
-    {file = "rectangle_packer-2.0.4-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:2a86cc7bc32e1edddbcf7c90a524697a2dd081ed0236064e390b81f3bb88b1ad"},
-    {file = "rectangle_packer-2.0.4-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:babe18f1f0cb59e52ce012ff9275c8b5524e6340135c4eccbd8ffe404c99d2bd"},
-    {file = "rectangle_packer-2.0.4-cp310-cp310-musllinux_1_2_aarch64.whl", hash = "sha256:6e4db77f4a2f57e695624e72c1645f342cfddac67a33fe4bef91074ce04434c4"},
-    {file = "rectangle_packer-2.0.4-cp310-cp310-musllinux_1_2_i686.whl", hash = "sha256:36091942b97cf5865232f69052f08ea77b8ce2720515830f7fcfb64fdc7a7b70"},
-    {file = "rectangle_packer-2.0.4-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:8e63a4f02d13a9b1517e270f090914e88a5c8819d1c038636eb0c24d9910d734"},
-    {file = "rectangle_packer-2.0.4-cp310-cp310-win32.whl", hash = "sha256:a3b6216f8f42ffda7e871fc32b02ad1bd3612bc3020da42dfd3d408131809f4d"},
-    {file = "rectangle_packer-2.0.4-cp310-cp310-win_amd64.whl", hash = "sha256:1ef4bfc3695ccf6ceacfd6198a9b4854e73fa590c80da72c59e9872faf7bdd0e"},
-    {file = "rectangle_packer-2.0.4-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:9a79ae6cfabed29946c68c883d7e47218c52060c26447c526529938d26ee7ec8"},
-    {file = "rectangle_packer-2.0.4-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:fd2bc7c0d170b0d98933af79ad8908efb8ce4c149da6fbe69b8047047ad4edc6"},
-    {file = "rectangle_packer-2.0.4-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b1e521c6394596fc45820f1ec1d1f00c2979862269b0f323513ddc9db3141dd6"},
-    {file = "rectangle_packer-2.0.4-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:80db358b60080dcff7cf3b00772f36c4ceabb75be2cdb0b904766f8d711f3d7e"},
-    {file = "rectangle_packer-2.0.4-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:fed3211d6f737f3a60683ea8cd2e0ef7abb061e987eddfaee283790737728430"},
-    {file = "rectangle_packer-2.0.4-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "sha256:4a4f59f53fc49f683d07933905b8190d3e2800165b0af2a6304ec5dc304c7809"},
-    {file = "rectangle_packer-2.0.4-cp311-cp311-musllinux_1_2_i686.whl", hash = "sha256:1d60d0755b4220275b25fb01620304ce7c76d9cc1fcce71e643be4cbc2be70d2"},
-    {file = "rectangle_packer-2.0.4-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:004053f8252cb33679a342a070dfde507d4c9d8a7b3d797599699f8433aca4e4"},
-    {file = "rectangle_packer-2.0.4-cp311-cp311-win32.whl", hash = "sha256:703dfdd894fc2500e06487847708e3c4483396a19b0b91dacbb8e4449e82e6a2"},
-    {file = "rectangle_packer-2.0.4-cp311-cp311-win_amd64.whl", hash = "sha256:0c1d1cf44f9f0c424e4ba1d321308697c6496c91ab7c18c78fe973e8d7e8ad5a"},
-    {file = "rectangle_packer-2.0.4-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:30e3a5f20f1e9520aeef1229972865c0b6a7475b4f0c6dde70be5b7edd7ae60e"},
-    {file = "rectangle_packer-2.0.4-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:0e9df8c1f126e38e65ac3d543300df9d6ec7debbca44619eb913fb7adc7a5cc3"},
-    {file = "rectangle_packer-2.0.4-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b89e6ddd1c73900885b38b2e9517b9f8bec09f9118dbc29e1b8a6ca4a259dba1"},
-    {file = "rectangle_packer-2.0.4-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:fde37f3d84b3aea256b1b1446d212e309f5e7c86e803e2a673fecea422ba78ba"},
-    {file = "rectangle_packer-2.0.4-cp312-cp312-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d4b55f724eab7e82b70680ac7275c0c96d59acece8bd947285ff3dd024fd7cd2"},
-    {file = "rectangle_packer-2.0.4-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:e6125ca6d4a4ebafb8ab13fe5ace716668a6011a3859cc12c68f0803c327b072"},
-    {file = "rectangle_packer-2.0.4-cp312-cp312-musllinux_1_2_i686.whl", hash = "sha256:f9b592cb7de1d5d9fb520d335e328e9a7758cbf20a42356824dd1acc9867e5b4"},
-    {file = "rectangle_packer-2.0.4-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:37482c91f7331e4dab5b97029fdc23f398529ca5aedccfd16ca01b287b4af89a"},
-    {file = "rectangle_packer-2.0.4-cp312-cp312-win32.whl", hash = "sha256:14438726c635a040b35726a69b887372f8422c3a122ecf14b161be8649527745"},
-    {file = "rectangle_packer-2.0.4-cp312-cp312-win_amd64.whl", hash = "sha256:731c1e028963d1fefd263a774984f2f4cfe044fb427e034829765723f118e512"},
-    {file = "rectangle_packer-2.0.4-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:e7a668c44776ff8db9edb0df17f996d4eac6b1842d9a23ddd48bf7f0968744e4"},
-    {file = "rectangle_packer-2.0.4-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:84a0c386496264aaa0ab688e66c7952e1d0115edaf761b3b85feb1b8b718c98a"},
-    {file = "rectangle_packer-2.0.4-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:097b0b8655dc2da8c45a0e5efff465a2b154680383bfacb3a893f2f459ad1d15"},
-    {file = "rectangle_packer-2.0.4-cp313-cp313-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:507089254bcf7b3c88338b857b076c5206e9ee90de7b4e1a668b2cf943dbb5c7"},
-    {file = "rectangle_packer-2.0.4-cp313-cp313-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ecef96aa7a63b8eba12ee22412830a7feed9d6504a87c50708fdf33bb5151e1a"},
-    {file = "rectangle_packer-2.0.4-cp313-cp313-musllinux_1_2_aarch64.whl", hash = "sha256:d9a732ae26f09e067a11074d5f56b9a6e6beca9c15c4588ea3eb422e1e58455f"},
-    {file = "rectangle_packer-2.0.4-cp313-cp313-musllinux_1_2_i686.whl", hash = "sha256:ce13ccd45b101d04d6eb514789dbe5c7ef927d7d1d4527d46a682b65339d5c8c"},
-    {file = "rectangle_packer-2.0.4-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:928e1d4c48187d0c9d7a8449e3cb3d2705f51dffa114bb24bdb3195bf5c0fcf9"},
-    {file = "rectangle_packer-2.0.4-cp313-cp313-win32.whl", hash = "sha256:58b94d2aa98594c02d8b848a128c9b34f293fa709daa79cdca9d4916375e4048"},
-    {file = "rectangle_packer-2.0.4-cp313-cp313-win_amd64.whl", hash = "sha256:be88cff1de041d4b14bcee09b6910580c8f891065332f64bf4ea79ff9c64a516"},
-    {file = "rectangle_packer-2.0.4-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:099244b4d278a0738dc211ae26be2a181ad67fd2b5dab24fe6e0fb5e99a2a91c"},
-    {file = "rectangle_packer-2.0.4-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:7601279304ddb5fc24538fb9367d84083f07e0766359a2da49fb2d4edbdfce51"},
-    {file = "rectangle_packer-2.0.4-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d33dea467acacf28888709623256e81fd935a45c2fbff875ffd2552cf1ed072f"},
-    {file = "rectangle_packer-2.0.4-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:066220fcab8aca3d6cb8387213ce8776b632fcd4302d17e7e29bf10a67e81a80"},
-    {file = "rectangle_packer-2.0.4-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:87a5331b82c66157f70cbb2825067200c8c3e767b537b21ac5d071369549e010"},
-    {file = "rectangle_packer-2.0.4-cp39-cp39-musllinux_1_2_aarch64.whl", hash = "sha256:ea64c7ce27f812d4408adc2cf2a7ccf9cd53f6caa46965b04d2087de0be920bc"},
-    {file = "rectangle_packer-2.0.4-cp39-cp39-musllinux_1_2_i686.whl", hash = "sha256:bb0a560311924bda8ca8035530b97f72d6bde7d3cb85a838b135d3bceb5a348e"},
-    {file = "rectangle_packer-2.0.4-cp39-cp39-musllinux_1_2_x86_64.whl", hash = "sha256:5da4a96f43805c000ec6234cf40b768d6d58bf04ab085aed4e38bb70ffb9d6b6"},
-    {file = "rectangle_packer-2.0.4-cp39-cp39-win32.whl", hash = "sha256:7db427e237cc91795c0367d113173980cd5506e8cc0cd0e53338e0bcdf637366"},
-    {file = "rectangle_packer-2.0.4-cp39-cp39-win_amd64.whl", hash = "sha256:dfc1f76577ce85b63dfc90bf80ee3d042d7ea2fc41f24138797cf4b5e24b40e6"},
-    {file = "rectangle_packer-2.0.4.tar.gz", hash = "sha256:bddc7f8d94a08bed320b33392bfd00015e18ee315f6bc7b3deefcf35f7609c60"},
-]
 
 [[package]]
 name = "regex"
@@ -8456,4 +8422,4 @@ viz = ["matplotlib", "plotly", "seaborn"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<=3.13"
-content-hash = "95676a86c4b574ac95d5d70f7afe9eb644da81e4f686a2c9ef5e246941a3cd66"
+content-hash = "d76f9e5135c50bdaf7156dd81862912e3103e6995101e70b707f2189de3796d7"
