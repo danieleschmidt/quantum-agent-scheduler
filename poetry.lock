@@ -1230,23 +1230,24 @@ files = [
 
 [[package]]
 name = "cohere"
-version = "5.17.0"
+version = "5.6.2"
 description = ""
 optional = true
-python-versions = "<4.0,>=3.9"
+python-versions = "<4.0,>=3.8"
 groups = ["main"]
 markers = "extra == \"all\" or extra == \"crewai\""
 files = [
-    {file = "cohere-5.17.0-py3-none-any.whl", hash = "sha256:fe7d8228cda5335a7db79a828893765a4d5a40b7f7a43443736f339dc7813fa4"},
-    {file = "cohere-5.17.0.tar.gz", hash = "sha256:70d2fb7bccf8c9de77b07e1c0b3d93accf6346242e3cdc6ce293b577afa74a63"},
+    {file = "cohere-5.6.2-py3-none-any.whl", hash = "sha256:cfecf1343bcaa4091266c5a231fbcb3ccbd80cad05ea093ef80024a117aa3a2f"},
+    {file = "cohere-5.6.2.tar.gz", hash = "sha256:6bb901afdfb02f62ad8ed2d82f12d8ea87a6869710f5f880cb89190c4e994805"},
 ]
 
 [package.dependencies]
+boto3 = ">=1.34.0,<2.0.0"
 fastavro = ">=1.9.4,<2.0.0"
 httpx = ">=0.21.2"
-httpx-sse = "0.4.0"
+httpx-sse = ">=0.4.0,<0.5.0"
+parameterized = ">=0.9.0,<0.10.0"
 pydantic = ">=1.9.2"
-pydantic-core = ">=2.18.2,<3.0.0"
 requests = ">=2.0.0,<3.0.0"
 tokenizers = ">=0.15,<1"
 types-requests = ">=2.0.0,<3.0.0"
@@ -3337,15 +3338,14 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "httpx-sse"
-version = "0.4.0"
+version = "0.4.1"
 description = "Consume Server-Sent Event (SSE) messages with HTTPX."
-optional = true
-python-versions = ">=3.8"
+optional = false
+python-versions = ">=3.9"
 groups = ["main"]
-markers = "extra == \"all\" or extra == \"crewai\""
 files = [
-    {file = "httpx-sse-0.4.0.tar.gz", hash = "sha256:1e81a3a3070ce322add1d3529ed42eb5f70817f45ed6ec915ab753f961139721"},
-    {file = "httpx_sse-0.4.0-py3-none-any.whl", hash = "sha256:f329af6eae57eaa2bdfd962b42524764af68075ea87370a2de920af5341e318f"},
+    {file = "httpx_sse-0.4.1-py3-none-any.whl", hash = "sha256:cba42174344c3a5b06f255ce65b350880f962d99ead85e776f23c6618a377a37"},
+    {file = "httpx_sse-0.4.1.tar.gz", hash = "sha256:8f44d34414bc7b21bf3602713005c5df4917884f76072479b21f68befa4ea26e"},
 ]
 
 [[package]]
@@ -5650,6 +5650,22 @@ spss = ["pyreadstat (>=1.2.0)"]
 sql-other = ["SQLAlchemy (>=2.0.0)", "adbc-driver-postgresql (>=0.8.0)", "adbc-driver-sqlite (>=0.8.0)"]
 test = ["hypothesis (>=6.46.1)", "pytest (>=7.3.2)", "pytest-xdist (>=2.2.0)"]
 xml = ["lxml (>=4.9.2)"]
+
+[[package]]
+name = "parameterized"
+version = "0.9.0"
+description = "Parameterized testing with any Python test framework"
+optional = true
+python-versions = ">=3.7"
+groups = ["main"]
+markers = "extra == \"all\" or extra == \"crewai\""
+files = [
+    {file = "parameterized-0.9.0-py2.py3-none-any.whl", hash = "sha256:4e0758e3d41bea3bbd05ec14fc2c24736723f243b28d702081aef438c9372b1b"},
+    {file = "parameterized-0.9.0.tar.gz", hash = "sha256:7fc905272cefa4f364c1a3429cbbe9c0f98b793988efb5bf90aac80f08db09b1"},
+]
+
+[package.extras]
+dev = ["jinja2"]
 
 [[package]]
 name = "pathspec"
