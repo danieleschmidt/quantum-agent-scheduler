@@ -1,5 +1,5 @@
 # Multi-stage production Dockerfile for Quantum Scheduler
-FROM python:3.11-slim as builder
+FROM python:3.13.7-slim as builder
 
 # Set build arguments
 ARG BUILD_DATE
@@ -44,7 +44,7 @@ RUN poetry install --only=main --no-dev --no-root \
     && rm -rf /tmp/poetry-cache
 
 # Production stage
-FROM python:3.11-slim as production
+FROM python:3.13.7-slim as production
 
 # Install runtime dependencies
 RUN apt-get update && apt-get install -y \
