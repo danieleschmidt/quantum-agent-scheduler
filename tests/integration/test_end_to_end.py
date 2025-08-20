@@ -318,7 +318,7 @@ class TestSystemIntegration:
         from quantum_scheduler.monitoring import get_metrics_collector, configure_metrics
         
         # Configure metrics
-        configure_metrics(max_history=100, ttl_seconds=300)
+        configure_metrics(max_history=100)
         
         # Use scheduler with metrics
         scheduler = QuantumScheduler(backend="classical", enable_metrics=True)
