@@ -1,0 +1,6 @@
+#!/root/repo/working_env/bin/python
+import sys
+from quantum_scheduler.cli import main
+
+if __name__ == '__main__':
+    sys.exit(main())
