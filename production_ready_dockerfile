@@ -1,0 +1,66 @@
+# Multi-stage production Dockerfile
+FROM python:3.11-slim AS builder
+
+# Set working directory
+WORKDIR /app
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy dependency files
+COPY pyproject.toml poetry.lock ./
+
+# Install poetry and dependencies
+RUN pip install --no-cache-dir poetry && \
+    poetry config virtualenvs.create false && \
+    poetry install --no-dev --no-interaction --no-ansi
+
+# Production runtime stage
+FROM python:3.11-slim AS runtime
+
+# Security: Create non-root user
+RUN groupadd --gid 1000 app && \
+    useradd --uid 1000 --gid 1000 --create-home --shell /bin/bash app
+
+# Install runtime dependencies and security updates
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Set working directory and ownership
+WORKDIR /app
+RUN chown -R app:app /app
+
+# Copy Python dependencies from builder stage
+COPY --from=builder --chown=app:app /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+COPY --from=builder --chown=app:app /usr/local/bin /usr/local/bin
+
+# Copy application code
+COPY --chown=app:app src/ ./src/
+COPY --chown=app:app pyproject.toml ./
+COPY --chown=app:app README.md ./
+
+# Security: Switch to non-root user
+USER app
+
+# Environment variables
+ENV PYTHONPATH=/app/src \
+    PYTHONUNBUFFERED=1 \
+    QUANTUM_SCHEDULER_ENV=production \
+    QUANTUM_SCHEDULER_LOG_LEVEL=info
+
+# Health check for container orchestration
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1
+
+# Expose port
+EXPOSE 8000
+
+# Production entrypoint
+CMD ["python", "-m", "uvicorn", "quantum_scheduler.api:app", \
+     "--host", "0.0.0.0", "--port", "8000", \
+     "--workers", "4", "--access-log"]
