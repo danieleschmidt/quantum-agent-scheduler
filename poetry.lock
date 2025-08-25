@@ -164,19 +164,19 @@ tz = ["tzdata"]
 
 [[package]]
 name = "amazon-braket-default-simulator"
-version = "1.27.0"
-description = "An open source quantum circuit simulator to be run locally with the Amazon Braket SDK"
+version = "1.29.0"
+description = "An open source quantum program simulator to be run locally with the Amazon Braket SDK"
 optional = false
-python-versions = ">=3.9"
+python-versions = ">=3.10"
 groups = ["main", "quantum"]
 files = [
-    {file = "amazon_braket_default_simulator-1.27.0-py3-none-any.whl", hash = "sha256:2a67e97f03e89ea7c94b1a76a32da2c5a8a53d229df4e14d9894e77a106f2470"},
-    {file = "amazon_braket_default_simulator-1.27.0.tar.gz", hash = "sha256:226aa418987cdca6665e7e2922481f595a7be23b89df89a36d35c95444512d13"},
+    {file = "amazon_braket_default_simulator-1.29.0-py3-none-any.whl", hash = "sha256:eddd31479764edf5fd705645a79766451aaf2c5d6f3f12a89539f5c5ecd461ff"},
+    {file = "amazon_braket_default_simulator-1.29.0.tar.gz", hash = "sha256:7eac04f7d9698393c770e0c8792a586ed62b2a14993a8e439e40e7e353a0be30"},
 ]
 
 [package.dependencies]
 amazon-braket-schemas = ">=1.25.0"
-antlr4-python3-runtime = "4.9.2"
+antlr4-python3-runtime = "4.13.2"
 numpy = "*"
 opt_einsum = "*"
 pydantic = ">2"
@@ -184,7 +184,7 @@ scipy = "*"
 sympy = "*"
 
 [package.extras]
-test = ["pre-commit", "pylint", "pytest (==7.2.0)", "pytest-benchmark", "pytest-cov", "pytest-rerunfailures", "pytest-xdist", "ruff", "sphinx", "sphinx-rtd-theme", "sphinxcontrib-apidoc", "tox"]
+test = ["pre-commit", "pylint", "pytest (==7.4.4)", "pytest-benchmark", "pytest-cov", "pytest-rerunfailures", "pytest-xdist", "ruff", "sphinx", "sphinx-rtd-theme", "sphinxcontrib-apidoc", "tox"]
 
 [[package]]
 name = "amazon-braket-schemas"
@@ -252,13 +252,14 @@ files = [
 
 [[package]]
 name = "antlr4-python3-runtime"
-version = "4.9.2"
-description = "ANTLR 4.9.2 runtime for Python 3.7"
+version = "4.13.2"
+description = "ANTLR 4.13.2 runtime for Python 3"
 optional = false
 python-versions = "*"
 groups = ["main", "quantum"]
 files = [
-    {file = "antlr4-python3-runtime-4.9.2.tar.gz", hash = "sha256:31f5abdc7faf16a1a6e9bf2eb31565d004359b821b09944436a34361929ae85a"},
+    {file = "antlr4_python3_runtime-4.13.2-py3-none-any.whl", hash = "sha256:fe3835eb8d33daece0e799090eda89719dbccee7aa39ef94eed3818cafa5a7e8"},
+    {file = "antlr4_python3_runtime-4.13.2.tar.gz", hash = "sha256:909b647e1d2fc2b70180ac586df3933e38919c85f98ccc656a96cd3f25ef3916"},
 ]
 
 [[package]]
