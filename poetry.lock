@@ -6630,22 +6630,22 @@ pyyaml = "*"
 
 [[package]]
 name = "qiskit"
-version = "1.4.3"
+version = "1.4.4"
 description = "An open-source SDK for working with quantum computers at the level of extended quantum circuits, operators, and primitives."
 optional = false
 python-versions = ">=3.9"
 groups = ["main", "quantum"]
 files = [
-    {file = "qiskit-1.4.3-cp39-abi3-macosx_10_12_x86_64.whl", hash = "sha256:65caf291bbe93f136b85281cb4a807c138fc4315fc17bdda9382cb4bfa18abdf"},
-    {file = "qiskit-1.4.3-cp39-abi3-macosx_11_0_arm64.whl", hash = "sha256:6e9f41eca2f4d522f59e48a47eb8b81ed3fdd35f56cefb41cc0db47768ccde47"},
-    {file = "qiskit-1.4.3-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:a04c6baca379bae8e6fc626bd06f0dda3f2ee7961205839b5a431b7f8d1e3978"},
-    {file = "qiskit-1.4.3-cp39-abi3-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:4ca6eeaf29ae2cf3789e7474b062845c59c6e4164276569949f9170cfcaec6b1"},
-    {file = "qiskit-1.4.3-cp39-abi3-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:bc82934e5b5192a75adca57bfa8194166e6bce1023da3b82e02db6c279a5d0fc"},
-    {file = "qiskit-1.4.3-cp39-abi3-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:03355819fb9747a937bfffb0aba59d44c4654536b87c62dcd00d4e4e1550190f"},
-    {file = "qiskit-1.4.3-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8d90b25ad017839b0bf1b5d05d8bd4066b7f83e3c14839947994f5fd56a5f5e2"},
-    {file = "qiskit-1.4.3-cp39-abi3-win32.whl", hash = "sha256:74cb30e34189ca9c1263994705a0cf8d97cead5f7375dedab3be4e783173785d"},
-    {file = "qiskit-1.4.3-cp39-abi3-win_amd64.whl", hash = "sha256:554b5ad8c6198881923998fd0124660eec534c985c731d1e3c09c6421377c29e"},
-    {file = "qiskit-1.4.3.tar.gz", hash = "sha256:e4e311190c159578f253d219dc860241ccb71955ca08725bb092c74cf7fbdac5"},
+    {file = "qiskit-1.4.4-cp39-abi3-macosx_10_12_x86_64.whl", hash = "sha256:9e6e28a965c93dd4270825d29f21c4fc30d5381546765d6eb51c817e0e6c5286"},
+    {file = "qiskit-1.4.4-cp39-abi3-macosx_11_0_arm64.whl", hash = "sha256:230f3d48eb1b4760d519c73ea46c606cee5de11f4d94014535ed1529258ee018"},
+    {file = "qiskit-1.4.4-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:bd9920bef8adbc94c0a00fc66e5df976303878493a14d8d4c07c743eb5ee671e"},
+    {file = "qiskit-1.4.4-cp39-abi3-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:c6f1933b51c982c63a800314d1920d6a7df17180d94b5b5c00d8016aa1fc39a9"},
+    {file = "qiskit-1.4.4-cp39-abi3-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:e2ff557a28da839b702d3c07f5a82a01d61b3773ff7a11f34aa9557eb10dbe8c"},
+    {file = "qiskit-1.4.4-cp39-abi3-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:5087f77d3bd05dc9affe46f56917a0207e7e3adf005e24da3c2b7d731043a2c5"},
+    {file = "qiskit-1.4.4-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:496c7f6a324b9ee60e2f59503ad25559fec7ec771a74b5e233b6512f01b019f8"},
+    {file = "qiskit-1.4.4-cp39-abi3-win32.whl", hash = "sha256:4e839612835422d0c285b1879bca547fcf875000f347377ceb1463aa2324c5e1"},
+    {file = "qiskit-1.4.4-cp39-abi3-win_amd64.whl", hash = "sha256:52c1f04345c6093305f1f4fe9d22a69ee86aa79b6b2beca7e0c89d3694d8b104"},
+    {file = "qiskit-1.4.4.tar.gz", hash = "sha256:96251c94b14175455809016c08c013dfb615020289e2920a9878fddf35bdda86"},
 ]
 
 [package.dependencies]
@@ -8405,4 +8405,4 @@ viz = ["matplotlib", "plotly", "seaborn"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<=3.13"
-content-hash = "4b690a02653f3f3e26c94f60d4dc5d99f8520332e0a0d54cd9b874ad7d360100"
+content-hash = "dd1411889b259ee2f026ded8cdd56a9207a1fa75c714e15edfaf10e117402541"
