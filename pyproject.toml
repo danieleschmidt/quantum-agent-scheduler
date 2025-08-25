@@ -42,7 +42,7 @@ fastapi = {version = "^0.116.1", optional = true}
 uvicorn = {version = "^0.23.0", optional = true}
 
 # Quantum backends (optional)
-qiskit = {version = "^1.0.0", optional = true}
+qiskit = {version = "^1.4.4", optional = true}
 amazon-braket-sdk = {version = "^1.60.0", optional = true}
 azure-quantum = {version = "^1.0.0", optional = true}
 dwave-ocean-sdk = {version = "^8.4.0", optional = true}
@@ -79,7 +79,7 @@ mkdocs-gen-files = "^0.5.0"
 mkdocs-literate-nav = "^0.6.0"
 
 [tool.poetry.group.quantum.dependencies]
-qiskit = "^1.0.0"
+qiskit = "^1.4.4"
 amazon-braket-sdk = "^1.60.0"
 dwave-ocean-sdk = "^8.4.0"
 
