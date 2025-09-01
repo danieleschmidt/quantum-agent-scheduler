@@ -1,5 +1,5 @@
 # Multi-stage production Dockerfile
-FROM python:3.11-slim AS builder
+FROM python:3.13-slim AS builder
 
 # Set working directory
 WORKDIR /app
@@ -19,7 +19,7 @@ RUN pip install --no-cache-dir poetry && \
     poetry install --no-dev --no-interaction --no-ansi
 
 # Production runtime stage
-FROM python:3.11-slim AS runtime
+FROM python:3.13-slim AS runtime
 
 # Security: Create non-root user
 RUN groupadd --gid 1000 app && \
