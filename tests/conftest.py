@@ -1,10 +1,12 @@
 """Shared test configuration and fixtures."""
+import sys, os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 import pytest
 from typing import List
 from unittest.mock import Mock
 
-from quantum_scheduler import Agent, Task, QuantumScheduler
+from quantum_scheduler import Agent, Task, Scheduler as QuantumScheduler
 
 
 @pytest.fixture
